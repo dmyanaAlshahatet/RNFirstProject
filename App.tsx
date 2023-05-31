@@ -7,48 +7,6 @@ import State from "./src/components/State";
 
 const App = () => { //function component//
 
-
-  const [x, setX] = useState(0)
-  const [txt, setTxt] = useState("")
-
-  useEffect(()=>{
-    console.log("did load");
-    
-
-    return ()=> {
-      console.log("component will unmount"); 
-    }
-  } , [])
-
-  useEffect(() => {
-      console.log("text changed, the new text is: " , txt);
-  } , [txt])
-
-  return (
-    <View>
-      <Text style={style.text}>{txt}</Text>
-      <TextInput 
-      style={style.text}
-      value={txt} 
-      onChangeText={(val)=> setTxt(val)}
-      placeholder='text'
-       />
-
-      <Button title="press" onPress={()=> setTxt("")}/>
-
-    </View>
-  )
-}
-
-const style = StyleSheet.create({
-  text: {
-    fontSize: 50
-  }
-})
-
-
-
-
   const data = [
     {
       name: 'brahem',
@@ -89,15 +47,18 @@ const style = StyleSheet.create({
   }
 
 
+
   return (
     <View style={styles.container} >
       <ScrollView showsVerticalScrollIndicator={false}>
           {renderCards()}
+          <State/>
       </ScrollView>
-      <State/>
+      
     </View>
   );
   }
+  
 
 
 const styles = StyleSheet.create({
