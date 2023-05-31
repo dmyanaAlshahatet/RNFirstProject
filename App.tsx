@@ -1,11 +1,53 @@
 
-import react from "react"; //always do import//
-import { ImageBackground, StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import react, { useEffect, useState } from "react"; //always do import//
+import { ImageBackground, StyleSheet, Text, View, Image, ScrollView, TextInput, Button, }  from "react-native";
 import React, { Component } from 'react'
 import Card from "./src/components/Card";
 import State from "./src/components/State";
 
 const App = () => { //function component//
+
+
+  const [x, setX] = useState(0)
+  const [txt, setTxt] = useState("")
+
+  useEffect(()=>{
+    console.log("did load");
+    
+
+    return ()=> {
+      console.log("component will unmount"); 
+    }
+  } , [])
+
+  useEffect(() => {
+      console.log("text changed, the new text is: " , txt);
+  } , [txt])
+
+  return (
+    <View>
+      <Text style={style.text}>{txt}</Text>
+      <TextInput 
+      style={style.text}
+      value={txt} 
+      onChangeText={(val)=> setTxt(val)}
+      placeholder='text'
+       />
+
+      <Button title="press" onPress={()=> setTxt("")}/>
+
+    </View>
+  )
+}
+
+const style = StyleSheet.create({
+  text: {
+    fontSize: 50
+  }
+})
+
+
+
 
   const data = [
     {
@@ -46,11 +88,6 @@ const App = () => { //function component//
     })
   }
 
-  const state = () => {
-    return <State/>
-  }
-
-
 
   return (
     <View style={styles.container} >
@@ -60,7 +97,8 @@ const App = () => { //function component//
       <State/>
     </View>
   );
-}
+  }
+
 
 const styles = StyleSheet.create({
   container: {
