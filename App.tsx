@@ -3,7 +3,7 @@ import react from "react"; //always do import//
 import { ImageBackground, StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import React, { Component } from 'react'
 import Card from "./src/components/Card";
-import SecCard from "./src/components/SecCard";
+import State from "./src/components/State";
 
 const App = () => { //function component//
 
@@ -42,7 +42,12 @@ const App = () => { //function component//
   const renderCards = ()=> {
     return data.map(cardData => {
       return <Card name={cardData.name} bd={cardData.bd} bgc={cardData.bgc} />
+      
     })
+  }
+
+  const state = () => {
+    return <State/>
   }
 
 
@@ -52,6 +57,7 @@ const App = () => { //function component//
       <ScrollView showsVerticalScrollIndicator={false}>
           {renderCards()}
       </ScrollView>
+      <State/>
     </View>
   );
 }

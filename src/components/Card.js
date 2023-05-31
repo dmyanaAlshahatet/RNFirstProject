@@ -18,7 +18,6 @@ const Card = (props) => {
 
 
 
-
 const styles = StyleSheet.create({
     card: {
         borderWidth: 1,
@@ -46,6 +45,8 @@ const styles = StyleSheet.create({
         // borderWidth:1 , 
         // alignSelf:'center'
         textAlign: 'center'
+
+        
     },
 })
 
