@@ -4,6 +4,7 @@ import { ImageBackground, StyleSheet, Text, View, Image, ScrollView, TextInput, 
 import React, { Component } from 'react'
 import Card from "./src/components/Card";
 import State from "./src/components/State";
+import Counter from "./src/components/Counter";
 
 const App = () => { //function component//
 
@@ -51,10 +52,12 @@ const App = () => { //function component//
   return (
     <View style={styles.container} >
       <ScrollView showsVerticalScrollIndicator={false}>
-          {renderCards()}
-          <State/>
+          {/* {renderCards()} */}
+          {/* <State/> */}
+          <Counter/>
+          <Counter/>
       </ScrollView>
-      
+
     </View>
   );
   }

@@ -20,6 +20,7 @@ const Card = (props) => {
 
 const styles = StyleSheet.create({
     card: {
+        flex:1,
         borderWidth: 1,
         width: '70%',
         padding: 10,
