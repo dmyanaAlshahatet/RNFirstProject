@@ -11,7 +11,7 @@ const Card = (props) => {
                     <Text>{'bd: ' + props.bd}</Text>
                 </View>
             </View>
-            <Text style={styles.uiText}>my first ui </Text>
+        <Text style={styles.uiText}>my first ui </Text>
         </View>
     )
 }

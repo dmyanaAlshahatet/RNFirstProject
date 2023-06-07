@@ -31,7 +31,6 @@ const State = () => {
        />
 
       <Button title="press" onPress={()=> setTxt("")}/>
-
     </View>
   )
 }

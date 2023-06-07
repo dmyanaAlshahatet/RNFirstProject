@@ -3,25 +3,35 @@ import React, { useEffect, useState } from 'react'
 
 
 const Counter = () => {
-    const [x, setX] = useState(0)
 
-    // const Increment = () => setX((x) => x + 1);
-    // const Discrement = () => setX((x) => x - 1);
-    // Increment = () =>{} 
+    const [x, setX] = useState(0)
+    
+    //<Button title="+" onPress={() => setX(x + 1)}/> // if i want without a function.
+
+    const Increment = () => { setX( x + 1); }
+    const reset = () => { setX(0); }
+    const Discrement = () => {
+        if( x > 0 ) {
+            setX(x - 1)
+        }
+    }
+
     
     return (
         <View style={[styles.card ]}>
             <Text style={styles.text}>{x}</Text>
              <View style={styles.buttons}>
                 <View style={styles.IncrementCard}>  
-                <Button title="+" onPress={() => setX(x + 1)}/> 
+                <Button title="+" onPress={Increment}/> 
+                </View> 
+                <View style={styles.DiscrementCard}>  
+                <Button title="-" onPress={Discrement}/> 
                 </View>
-                <Button title="reset" onPress={() => setX(0)}/> 
+                <Button title="reset" onPress={reset}/> 
              </View>
         </View>
     )
 }
-
 
 
 const styles = StyleSheet.create({
@@ -29,7 +39,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         width: '80%',
         padding: 30,
-        borderRadius: 10,
+        borderRadius: 7,
         marginTop: 20,
         alignSelf: 'center',
     },
@@ -40,14 +50,21 @@ const styles = StyleSheet.create({
     },
 
     IncrementCard: {
-        marginLeft:150,
-        // borderWidth:3,
+        marginLeft:140,
+       // borderWidth:3,
+       
     },
-    
+
+    DiscrementCard: {
+      // marginLeft:1,
+      // borderWidth:3,
+      
+    },
+
     text: {
         color: 'black',
         fontSize: 40,
-        //   borderWidth:1 , 
+        // borderWidth:1 , 
         // alignSelf:'center'
     },
 })
