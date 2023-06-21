@@ -6,6 +6,10 @@ import Card from "./src/components/Card";
 import State from "./src/components/State";
 import Counter from "./src/components/Counter";
 import EditProfileView from "./src/components/EditProfileView";
+// import { NavigationContainer } from "@react-navigation/native";
+import MainNavigation from "./route/nav";
+
+
 
 
 const App = () => { //function component//
@@ -51,16 +55,19 @@ const App = () => { //function component//
 
 
   return (
+    // <NavigationContainer>
     <View style={styles.container} >
       <ScrollView showsVerticalScrollIndicator={false}>
           {/* {renderCards()} */}
           {/* <State/> */}
           {/* <Counter/> */}
           {/* <Counter/> */}
-          <EditProfileView/>
+          {/* <EditProfileView/> */}
+          <MainNavigation />
       </ScrollView>
-
     </View>
+    // </NavigationContainer>
+
   );
   }
   
