@@ -6,8 +6,10 @@ import Card from "./src/components/Card";
 import State from "./src/components/State";
 import Counter from "./src/components/Counter";
 import EditProfileView from "./src/components/EditProfileView";
-// import { NavigationContainer } from "@react-navigation/native";
 import MainNavigation from "./route/nav";
+import RNFirstProjectProvider from "./Store/RNFirstProjectProvider";
+import RNFirstProjectContext from "./Store/RNFirstProjectContext";
+ 
 
 
 
@@ -55,19 +57,18 @@ const App = () => { //function component//
 
 
   return (
-    // <NavigationContainer>
     <View style={styles.container} >
-      <ScrollView showsVerticalScrollIndicator={false}>
+    
           {/* {renderCards()} */}
           {/* <State/> */}
           {/* <Counter/> */}
           {/* <Counter/> */}
           {/* <EditProfileView/> */}
-          <MainNavigation />
-      </ScrollView>
+          <RNFirstProjectProvider>
+            <MainNavigation />
+          </RNFirstProjectProvider>
+          
     </View>
-    // </NavigationContainer>
-
   );
   }
   
@@ -76,10 +77,6 @@ const App = () => { //function component//
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    // justifyContent: 'center',
-    // alignItems: 'center' , 
-    paddingTop: 50
   },
 
 })
