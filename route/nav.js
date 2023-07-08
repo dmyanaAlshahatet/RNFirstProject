@@ -6,6 +6,7 @@ import { Text, View } from "react-native";
 import Screen1 from "../src/components/screens/Screen1";
 import Screen2 from "../src/components/screens/Screen2";
 import Screen3 from "../src/components/screens/Screen3";
+import EditProfileView from "../src/components/EditProfileView";
 
 
 const MainNavigation = () => {
@@ -14,10 +15,11 @@ const MainNavigation = () => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName="Edit">
                 <Stack.Screen name='Home' component={Screen1}/>
                 <Stack.Screen name='screen2' component={Screen2}  />
                 <Stack.Screen name='screen3' component={Screen3}  />
+                <Stack.Screen name='Login' component={EditProfileView}  />
             </Stack.Navigator>
         </NavigationContainer>
     )

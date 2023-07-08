@@ -66,6 +66,7 @@ const App = () => { //function component//
           {/* <EditProfileView/> */}
           <RNFirstProjectProvider>
             <MainNavigation />
+            {/* <EditProfileView/> */}
           </RNFirstProjectProvider>
           
     </View>

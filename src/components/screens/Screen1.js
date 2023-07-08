@@ -16,16 +16,27 @@ const Screen1 = (props) => {
         props.navigation.navigate('screen3')
     }
 
+    const navigateToLogin = () => {
+        props.navigation.navigate('Login')
+    }
+
+
+    
+
     console.log("scree1_c: ", scree1_c);
 
     return (
         <View style={{ flex: 1 }}>
             <TouchableOpacity style={styles.btn} onPress={navigateToScreen2} >
-                <Text> navigate to Screen2</Text>
+                <Text style ={styles.titleScreen}> navigate to Screen2</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btn} onPress={navigateToScreen3} >
-                <Text> navigate to Screen3</Text>
+                <Text style ={styles.titleScreen}> navigate to Screen3</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btn} onPress={navigateToLogin} >
+                <Text style ={styles.titleScreen} > navigate to Login</Text>
             </TouchableOpacity>
 
             
@@ -33,16 +44,24 @@ const Screen1 = (props) => {
     )
 }
 
+
 export default Screen1
+
 
 const styles = StyleSheet.create({
     btn: {
         width: '50%',
         height: 50,
-        // backgroundColor:'red' , 
+
+        // backgroundColor: 'red',
         alignSelf: 'center',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
 
+    titleScreen: {
+        fontSize: 20,
+        color: '#3592bd',
+
+    },
 })

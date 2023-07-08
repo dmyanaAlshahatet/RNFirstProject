@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import RNFirstProjectContext from '../../Store/RNFirstProjectContext';
 
 const EditProfileView = () => {
     
@@ -67,18 +68,18 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    width: '75%',
+    width: '80%',
     shadowColor:'blue',
     // borderWidth:1,
     // shadowOffset:{
-    //     width:0,
-    //     height:9,
+        // width:30,
+        // height:30,
     // },
-    // shadowOpacity:30,
-    // shadowRadius:10,
-    // elevation:100,
-    marginBottom:10,
-    padding:10,
+    shadowOpacity:20,
+    shadowRadius:40,
+    elevation:100,
+    marginBottom:90,
+    padding:20,
   },
 
   label: {
@@ -94,10 +95,10 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    marginTop: 20,
+    marginTop: 30,
     backgroundColor: 'blue',
     borderRadius: 10,
-    paddingVertical: 10,
+    paddingVertical: 6,
     paddingHorizontal: 20,
    // textAlign:'center',
   },
@@ -105,6 +106,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 18,
+    textAlign:'center',
+    
   },
 
   profileContainer: {
