@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import RNFirstProjectContext from '../../Store/RNFirstProjectContext';
 
-const EditProfileView = () => {
+const ProfileView = (props) => {
     
   const profileData = {
     name: 'Boss Baby',
@@ -16,6 +16,7 @@ const EditProfileView = () => {
   const [profile, setProfile] = useState(profileData.profile);
 
   const handleSubmit = () => {
+    props.navigation.navigate('Instagram')
 
   }
 
@@ -51,7 +52,7 @@ const EditProfileView = () => {
           value={bio}
           onChangeText={setBio}
         />
-        <TouchableOpacity style={styles.button} onPress={() => handleSubmit({name, email, bio, profileData})}>
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
@@ -65,18 +66,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'white'
   },
 
   form: {
     width: '80%',
     shadowColor:'blue',
     // borderWidth:1,
-    // shadowOffset:{
-        // width:30,
-        // height:30,
-    // },
+    shadowOffset:{
+        width:30,
+        height:30,
+    },
     shadowOpacity:20,
-    shadowRadius:40,
+    shadowRadius:50,
     elevation:100,
     marginBottom:90,
     padding:20,
@@ -132,5 +134,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EditProfileView;
+export default ProfileView;
 

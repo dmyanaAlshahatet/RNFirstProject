@@ -20,6 +20,10 @@ const Screen1 = (props) => {
         props.navigation.navigate('Login')
     }
 
+    // const navigateToInstagram = () => {
+    //     props.navigation.navigate('Instagram')
+    // }
+
 
     
 
@@ -38,6 +42,10 @@ const Screen1 = (props) => {
             <TouchableOpacity style={styles.btn} onPress={navigateToLogin} >
                 <Text style ={styles.titleScreen} > navigate to Login</Text>
             </TouchableOpacity>
+
+            {/* <TouchableOpacity style={styles.btn} onPress={navigateToInstagram}>
+                <Text style ={styles.titleScreen}>INSTAGRAM</Text>
+            </TouchableOpacity> */}
 
             
         </View>
@@ -62,6 +70,8 @@ const styles = StyleSheet.create({
     titleScreen: {
         fontSize: 20,
         color: '#3592bd',
+        fontStyle:'italic',
+        fontWeight: 'bold',
 
     },
 })

@@ -1,0 +1,81 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+
+const TasksToDo = () => {
+  const [task, setTask] = useState('');
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = () => {
+    setTasks([...tasks, { task, key: tasks.length.toString() }]);
+    setTask('');
+  };
+
+  const removeTask = (key) => {
+    setTasks(tasks.filter((t) => t.key !== key));
+  };
+
+  return (
+    <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        value={task}
+        onChangeText={setTask}
+        placeholder="Add a task"
+      />
+      <TouchableOpacity style={styles.button} onPress={addTask}>
+        <Text style={styles.buttonText}>Add</Text>
+      </TouchableOpacity>
+      <FlatList
+        style={styles.list}
+        data={tasks}
+        renderItem={({ item }) => (
+          <View style={styles.listItem}>
+            <Text>{item.task}</Text>
+            <TouchableOpacity onPress={() => removeTask(item.key)}>
+              <Text>X</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#f1f8ff',
+  },
+  input: {
+    height: 40,
+    marginBottom: 10,
+    marginTop: 40,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+  button: {
+    backgroundColor: '#ddd',
+    padding: 10,
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontWeight: 'bold',
+  },
+  list: {
+    marginTop: 10,
+  },
+  listItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+    marginVertical: 5,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+});
+
+export default TasksToDo;

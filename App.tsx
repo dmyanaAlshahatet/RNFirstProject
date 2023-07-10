@@ -5,15 +5,13 @@ import React, { Component } from 'react'
 import Card from "./src/components/Card";
 import State from "./src/components/State";
 import Counter from "./src/components/Counter";
-import EditProfileView from "./src/components/EditProfileView";
+import ProfileView from "./src/components/ProfileView";
 import MainNavigation from "./route/nav";
 import RNFirstProjectProvider from "./Store/RNFirstProjectProvider";
-import RNFirstProjectContext from "./Store/RNFirstProjectContext";
+
+
+
  
-
-
-
-
 const App = () => { //function component//
 
   const data = [
@@ -66,7 +64,6 @@ const App = () => { //function component//
           {/* <EditProfileView/> */}
           <RNFirstProjectProvider>
             <MainNavigation />
-            {/* <EditProfileView/> */}
           </RNFirstProjectProvider>
           
     </View>
