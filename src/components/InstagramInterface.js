@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
-export default ProfileScreen = () => {
+const InstagramInterface = (props) => {
 
   const [images, setImages] = useState([
     'https://i.pinimg.com/280x280_RS/22/14/da/2214da1135c6402df44ad3353ded6f00.jpg',
@@ -16,11 +16,21 @@ export default ProfileScreen = () => {
   const [followingCount, setFollowingCount] = useState(250);
   const [followerCount, setFollowerCount] = useState(1000);
 
+  const addPost = () => {
+    props.navigation.navigate('TasksToDo')
+  }
+
+
   return (
     <View style={styles.container}>
+    
+    {/* <Text style={styles.postButton}> Add Post</Text> */}
+    <Text style={styles.acountName}>Instagram</Text>
       <View style={styles.header}>
+       <TouchableOpacity onPress={addPost}>
+          <Text style={styles.postButton}>+ post</Text>
+       </TouchableOpacity>
         <View style={styles.headerContent}>
-        <Text style={styles.acountName}>Instagram</Text>
           <Image style={styles.avatar} source={{ uri: 'https://arenamax.com.ua/wp-content/uploads/2021/11/rostovaja-figura-boss-molokosos-the-boss-baby-1500-mm..jpg' }}/>
           <Text style={styles.name}>@Boss_Baby</Text>
           <View style={styles.statsContainer}>
@@ -58,25 +68,45 @@ const styles = StyleSheet.create({
   },
   header: {
     // borderWidth:1,
-    // backgroundColor: 'white',
     alignItems: 'center',
     padding: 30,
     marginTop:20,
   },
+//   button:{
+//     backgroundColor: '#3592bd',
+//     borderRadius: 15,
+//     // paddingVertical: 3,
+//     // paddingHorizontal: 3,
+//     // marginLeft:5,
+//   },
   headerContent: {
-    alignItems: 'center',
+//    borderWidth:1,
+   alignItems: 'center',
   },
   acountName:{
     // borderWidth:1,
-    marginLeft:215,
-    marginBottom:50,
+    marginLeft:250,
+    marginTop:10,
     fontSize:25,
     fontStyle:'italic',
     fontFamily:'serif',
     fontWeight: 'bold',
     color:'black',
+  },
+  postButton:{
+    // borderWidth:1,
+    marginRight:255,
+    // marginLeft:20,
+    // marginTop:20,
+    fontSize:22,
+    fontStyle:'italic',
+    fontFamily:'serif',
+    fontWeight: 'bold',
+    color:'black',
+
 
   },
+  
   avatar: {
     width: 130,
     height: 130,
@@ -129,3 +159,4 @@ const styles = StyleSheet.create({
     // borderWidth:1,
   },
 });
+export default InstagramInterface ;
