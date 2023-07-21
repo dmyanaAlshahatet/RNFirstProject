@@ -53,15 +53,16 @@ const styles = StyleSheet.create({
     marginTop: 40,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#37455e',
   },
   button: {
-    backgroundColor: '#ddd',
+    backgroundColor: '#4d5b74',
     padding: 10,
     alignItems: 'center',
   },
   buttonText: {
     fontWeight: 'bold',
+    fontFamily:'serif',
   },
   list: {
     marginTop: 10,
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#4d5b74',
   },
 });
 

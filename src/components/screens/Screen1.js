@@ -20,9 +20,9 @@ const Screen1 = (props) => {
         props.navigation.navigate('Login')
     }
 
-    // const navigateToInstagram = () => {
-    //     props.navigation.navigate('Instagram')
-    // }
+    const navigateToInstagram = () => {
+        props.navigation.navigate('TasksToDo')
+    }
 
 
     
@@ -43,9 +43,9 @@ const Screen1 = (props) => {
                 <Text style ={styles.titleScreen} > navigate to Login</Text>
             </TouchableOpacity>
 
-            {/* <TouchableOpacity style={styles.btn} onPress={navigateToInstagram}>
-                <Text style ={styles.titleScreen}>INSTAGRAM</Text>
-            </TouchableOpacity> */}
+            <TouchableOpacity style={styles.btn} onPress={navigateToInstagram}>
+                <Text style ={styles.titleScreen}>TasksToDo</Text>
+            </TouchableOpacity>
 
             
         </View>

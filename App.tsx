@@ -1,4 +1,3 @@
-
 import react, { useEffect, useState } from "react"; //always do import//
 import { ImageBackground, StyleSheet, Text, View, Image, ScrollView, TextInput, Button, }  from "react-native";
 import React, { Component } from 'react'
@@ -8,6 +7,10 @@ import Counter from "./src/components/Counter";
 import ProfileView from "./src/components/ProfileView";
 import MainNavigation from "./route/nav";
 import RNFirstProjectProvider from "./Store/RNFirstProjectProvider";
+import TasksList from "./src/components/TasksList";
+import BottomTab from "./src/components/BottomTab";
+import splashScreen from 'react-native-splash-screen';
+
 
 
 
@@ -62,6 +65,8 @@ const App = () => { //function component//
           {/* <Counter/> */}
           {/* <Counter/> */}
           {/* <EditProfileView/> */}
+          {/* <TasksList/> */}
+          {/* <BottomTab/> */}
           <RNFirstProjectProvider>
             <MainNavigation />
           </RNFirstProjectProvider>
