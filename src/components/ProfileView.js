@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import RNFirstProjectContext from '../../Store/RNFirstProjectContext';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+// import shadow from 'react-na/tive-paper/lib/typescript/src/styles/shadow';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const ProfileView = (props) => {
     
@@ -17,8 +20,32 @@ const ProfileView = (props) => {
 
   const handleSubmit = () => {
     props.navigation.navigate('Instagram')
-
   }
+
+  // const generateBoxShadowStyle = (
+  //   xOffset,
+  //   yOffset,
+  //   shadowColorIos,
+  //   shadowOpacity,
+  //   shadowRadius,
+  //   elevation,
+  //   shadowColorAndroid,
+  // ) => {
+  //   if (Platform.OS === 'ios') {
+  //     styles.boxShadow = {
+  //       shadowColor: shadowColorIos,
+  //       shadowOffset: {width: xOffset, height: yOffset},
+  //       shadowOpacity,
+  //       shadowRadius,
+  //     };
+  //   } else if (Platform.OS === 'android') {
+  //     styles.boxShadow = {
+  //       elevation,
+  //       shadowColor: shadowColorAndroid,
+  //     };
+  //   }
+  // };
+/*********************************Test***************************************/
 
   return (
     <View style={styles.container}>
@@ -56,10 +83,21 @@ const ProfileView = (props) => {
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
-
+      <Text style={styles.Or}>Or</Text>
+      <View style={styles.loginWithFacebook}>
+        <AntDesign.Button
+          name="facebook-square"
+          backgroundColor="#3b5998"
+          Icon size = {20}
+          iconStyle = {{marginRight: 5 ,borderRadius:19}}
+          onPress={this.loginWithFacebook}>
+          Login with Facebook
+        </AntDesign.Button>
+      </View>
     </View>
   );
 };
+// generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717');/*********new change************/
 
 const styles = StyleSheet.create({
   container: {
@@ -68,26 +106,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor:'white'
   },
-
   form: {
     width: '80%',
-    shadowColor:'blue',
     // borderWidth:1,
-    shadowOffset:{
-        width:30,
-        height:30,
-    },
-    shadowOpacity:20,
-    shadowRadius:50,
-    elevation:100,
-    marginBottom:90,
+    elevation:34,
+    marginTop:15,
+    backgroundColor: 'white',
+    borderRadius: 10,
     padding:20,
+    shadowColor:'#000',
+    // borderWidth:1,
+    // shadowOffset:{
+    // width:50,
+    // height:50,
+    // },
+    // shadowOpacity:0.25,
+    // shadowRadius:3.84,
   },
-
   label: {
     marginTop: 20,
   },
-
   input: {
     borderColor: 'black',
     borderWidth: 1,
@@ -95,39 +133,44 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
   },
-
   button: {
-    marginTop: 30,
+    marginTop: 40,
     backgroundColor: 'blue',
-    borderRadius: 10,
+    borderRadius: 15,
     paddingVertical: 6,
     paddingHorizontal: 20,
    // textAlign:'center',
   },
-
+  loginWithFacebook: {
+    // borderWidth:1,
+    borderRadius: 18,
+  },
+  Or:{
+    fontSize: 15,
+    color: 'black',
+    fontWeight:'bold',
+    // borderWidth:1,
+    // marginTop:20,
+    margin:10,
+  },
   buttonText: {
     color: 'white',
     fontSize: 18,
     textAlign:'center',
-    
   },
-
   profileContainer: {
     marginTop: 20,
     alignItems: 'center',
   },
-
   profile: {
     width: 100,
     height: 100,
     borderRadius: 50,
   },
-
   changeProfileButton: {
     marginTop: 10,
     // borderWidth:1,
   },
-
   changeProfileButtonText: {
     color: 'black',
     fontSize: 18,

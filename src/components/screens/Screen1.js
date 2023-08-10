@@ -30,25 +30,27 @@ const Screen1 = (props) => {
     console.log("scree1_c: ", scree1_c);
 
     return (
-        <View style={{ flex: 1 }}>
+        <View >
+            <View style={styles.container}>
             <TouchableOpacity style={styles.btn} onPress={navigateToScreen2} >
-                <Text style ={styles.titleScreen}> navigate to Screen2</Text>
+                <Text style ={styles.btnTitle}> navigate to Screen2</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btn} onPress={navigateToScreen3} >
-                <Text style ={styles.titleScreen}> navigate to Screen3</Text>
+                <Text style ={styles.btnTitle}> navigate to Screen3</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btn} onPress={navigateToLogin} >
-                <Text style ={styles.titleScreen} > navigate to Login</Text>
+                <Text style ={styles.btnTitle} > navigate to Login</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btn} onPress={navigateToInstagram}>
-                <Text style ={styles.titleScreen}>TasksToDo</Text>
-            </TouchableOpacity>
-
-            
+                <Text style ={styles.btnTitle}>TasksToDo</Text>
+            </TouchableOpacity> 
+            </View>
+            <Text style={styles.screenTitle}>Home Page</Text>
         </View>
+        
     )
 }
 
@@ -57,19 +59,43 @@ export default Screen1
 
 
 const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        marginTop:250,
+        // borderWidth:1,
+
+    },
+
+    screenTitle:{
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // marginBottom:150,
+    marginTop:450,
+    fontSize:15,
+    fontStyle:'italic',
+    fontFamily:'serif',
+    fontWeight: 'bold',
+    color:'black',
+    },
+
     btn: {
         width: '50%',
         height: 50,
-
-        // backgroundColor: 'red',
+        borderWidth:2,
+        marginTop:10,
+        // marginBottom:50,
+        borderColor: '#3592bd',
+        borderRadius:14,
+        backgroundColor: 'white',
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
-    titleScreen: {
-        fontSize: 20,
-        color: '#3592bd',
+    btnTitle: {
+        fontSize: 17,
+        color: '#4d5b74',
         fontStyle:'italic',
         fontWeight: 'bold',
 

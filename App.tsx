@@ -8,9 +8,8 @@ import ProfileView from "./src/components/ProfileView";
 import MainNavigation from "./route/nav";
 import RNFirstProjectProvider from "./Store/RNFirstProjectProvider";
 import TasksList from "./src/components/TasksList";
-import BottomTab from "./src/components/BottomTab";
+import BottomTab from "./route/BottomTab";
 import splashScreen from 'react-native-splash-screen';
-
 
 
 
@@ -75,8 +74,6 @@ const App = () => { //function component//
   );
   }
   
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

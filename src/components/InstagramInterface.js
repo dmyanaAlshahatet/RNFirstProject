@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign'; 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'; 
+
 
 const InstagramInterface = (props) => {
 
@@ -20,16 +24,41 @@ const InstagramInterface = (props) => {
     props.navigation.navigate('TasksToDo')
   }
 
+  const goHome = () => {
+    props.navigation.goBack()
+    // if (navigation.canGoBack())
+    // props.navigation.goBack()
+    // else
+    // navigation.navigate('Home')
+  }
 
   return (
     <View style={styles.container}>
-    
     {/* <Text style={styles.postButton}> Add Post</Text> */}
+    {/* <View style={styles.postButtonChat}> */}
+    <View style={styles.postButtonChat} >
+    <View style={styles.goHomeIcon}>
+      <TouchableOpacity onPress={goHome}>
+        <AntDesign name='arrowleft' size={30} color= 'black'/>
+      </TouchableOpacity>
+    </View>
     <Text style={styles.acountName}>Instagram</Text>
-      <View style={styles.header}>
+    </View>
+    <View style={styles.header}>
+       <View style={styles.postButtonChat}>
+        <View style={styles.postButton}>
        <TouchableOpacity onPress={addPost}>
-          <Text style={styles.postButton}>+ post</Text>
+       <MaterialIcons name='post-add' size={37} color= 'black'/>
+        {/* <Text style={styles.postButton}>+ post</Text> */}
+       </TouchableOpacity> 
+       </View>
+       <View style={styles.chat}>
+       <TouchableOpacity>
+       <AntDesign name='wechat' size={35} color= 'black'/>
        </TouchableOpacity>
+       </View>
+       {/* <Image style={styles.chat} source={{ uri: 'https://cdn.statically.io/img/i.pinimg.com/originals/f0/70/3e/f0703e34b09159d23b2a6b3abcbcecb8.jpg' }}/> */}
+       </View>
         <View style={styles.headerContent}>
           <Image style={styles.avatar} source={{ uri: 'https://arenamax.com.ua/wp-content/uploads/2021/11/rostovaja-figura-boss-molokosos-the-boss-baby-1500-mm..jpg' }}/>
           <Text style={styles.name}>@Boss_Baby</Text>
@@ -64,49 +93,64 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:'white',
-    
+    boxWithShadow: {
+      elevation: 10
+  }
   },
   header: {
     // borderWidth:1,
     alignItems: 'center',
-    padding: 30,
+    padding: 10,
     marginTop:20,
   },
-//   button:{
-//     backgroundColor: '#3592bd',
-//     borderRadius: 15,
-//     // paddingVertical: 3,
-//     // paddingHorizontal: 3,
-//     // marginLeft:5,
-//   },
+  postButtonChat:{
+    flexDirection: 'row',
+    marginBottom:15,
+    // borderWidth:1,
+    justifyContent:'space-between',  
+  },
   headerContent: {
-//    borderWidth:1,
+  //  borderWidth:1,
    alignItems: 'center',
   },
   acountName:{
     // borderWidth:1,
-    marginLeft:250,
-    marginTop:10,
+    marginLeft:4,
+    marginRight:10,
+    marginTop:15,
     fontSize:25,
     fontStyle:'italic',
     fontFamily:'serif',
     fontWeight: 'bold',
     color:'black',
   },
+  goHomeIcon:{
+    // borderWidth:1,
+    marginTop:15,
+    marginRight:230
+  },
   postButton:{
     // borderWidth:1,
-    marginRight:255,
-    // marginLeft:20,
-    // marginTop:20,
+    marginRight:265,
+    // marginLeft:5,
+    marginTop:20,
     fontSize:22,
     fontStyle:'italic',
     fontFamily:'serif',
     fontWeight: 'bold',
     color:'black',
-
-
+    marginBottom:10,
   },
+  chat:{
+    // width: 60,
+    // height: 35,
+    // marginLeft:290,
+    // borderWidth:1,
+    // borderRadius: 1,
+    marginTop:20,
+    margin:10,
   
+  },
   avatar: {
     width: 130,
     height: 130,

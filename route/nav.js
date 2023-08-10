@@ -9,25 +9,32 @@ import Screen3 from "../src/components/screens/Screen3";
 import ProfileView from "../src/components/ProfileView";
 import TasksList from "../src/components/TasksList";
 import InstagramInterface from "../src/components/InstagramInterface";
-import BottomTab from "../src/components/BottomTab";
+import SearchAppointments from "../src/components/SearchAppointments";
+import BottomTab from "./BottomTab";
 import ScreenNames from "./screenNames";
+import SearchBar1 from "../src/components/SearchBar1";
+import Splash from "../src/components/screens/Splash";
 
 
-const MainNavigation = () => {
+
+
+const MainNavigation = (props) => {
 
     const Stack = createNativeStackNavigator()
 
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Edit">
-                 {/* <Stack.Screen name='Home' component={Screen1}/>
-                <Stack.Screen name='screen2' component={Screen2}  />
-                <Stack.Screen name='screen3' component={Screen3}  />
-                <Stack.Screen name='Login' component={ProfileView}  /> */}
-                <Stack.Screen name='TasksToDo' component={TasksList}  />
-                <Stack.Screen name={ScreenNames.Instagram} component={InstagramInterface}  /> 
-                <Stack.Screen name='BottomTab' component={BottomTab}    
-                />
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen name='Splash' component={Splash} options={{ headerShown: false }} />
+                {/* <Stack.Screen name={ScreenNames.Home} component={Screen1} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name={ScreenNames.searchAppointments} component={SearchAppointments} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name={ScreenNames.screen2} component={Screen2} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name={ScreenNames.screen3} component={Screen3} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name={ScreenNames.Login} component={ProfileView} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name={ScreenNames.TasksToDo} component={TasksList} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name={ScreenNames.searchBar} component={SearchBar1} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{ headerShown: false }} /> */}
+                <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -1,8 +1,12 @@
 const ScreenNames = {
-    Instagram :'Instagram'
-
-
-
+    BottomTab : 'BottomTab',
+    Home : 'Screen1', 
+    screen2 : 'Screen2',
+    screen3 : 'Screen3',
+    Instagram :'Instagram',
+    searchBar :'SearchBar1',
+    Login : 'ProfileView',
+    TasksToDo : 'TasksList',
+    searchAppointments : 'searchAppointments',
 }
-
-export default ScreenNames
+export default ScreenNames;
