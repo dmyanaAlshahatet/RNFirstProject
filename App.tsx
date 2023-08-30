@@ -12,7 +12,6 @@ import BottomTab from "./route/BottomTab";
 import splashScreen from 'react-native-splash-screen';
 
 
-
  
 const App = () => { //function component//
 
@@ -51,7 +50,6 @@ const App = () => { //function component//
   const renderCards = ()=> {
     return data.map(cardData => {
       return <Card name={cardData.name} bd={cardData.bd} bgc={cardData.bgc} />
-      
     })
   }
 

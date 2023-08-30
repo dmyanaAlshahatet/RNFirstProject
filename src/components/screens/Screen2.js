@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useContext } from 'react'
-import Screen1 from './Screen1'
+import Screen1 from './Home'
 import RNFirstProjectContext from '../../../Store/RNFirstProjectContext'
 
 const Screen2 = (props) => {

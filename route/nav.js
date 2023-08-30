@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { Text, View } from "react-native";
-import Screen1 from "../src/components/screens/Screen1";
+import Home from "../src/components/screens/Home";
 import Screen2 from "../src/components/screens/Screen2";
 import Screen3 from "../src/components/screens/Screen3";
 import ProfileView from "../src/components/ProfileView";
@@ -17,7 +17,6 @@ import Splash from "../src/components/screens/Splash";
 
 
 
-
 const MainNavigation = (props) => {
 
     const Stack = createNativeStackNavigator()
@@ -25,9 +24,9 @@ const MainNavigation = (props) => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name='Splash' component={Splash} options={{ headerShown: false }} />
-                {/* <Stack.Screen name={ScreenNames.Home} component={Screen1} options={{ headerShown: false }} /> */}
-                {/* <Stack.Screen name={ScreenNames.searchAppointments} component={SearchAppointments} options={{ headerShown: false }} /> */}
+                <Stack.Screen name={ScreenNames.Splash} component={Splash} options={{ headerShown: false }} />
+                {/* <Stack.Screen name={ScreenNames.Home} component={Home} options={{ headerShown: false }} /> */}
+                <Stack.Screen name={ScreenNames.searchAppointments} component={SearchAppointments} options={{ headerShown: false }} />
                 {/* <Stack.Screen name={ScreenNames.screen2} component={Screen2} options={{ headerShown: false }} /> */}
                 {/* <Stack.Screen name={ScreenNames.screen3} component={Screen3} options={{ headerShown: false }} /> */}
                 {/* <Stack.Screen name={ScreenNames.Login} component={ProfileView} options={{ headerShown: false }} /> */}

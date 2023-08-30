@@ -1,6 +1,7 @@
 const ScreenNames = {
+    Splash : "Splash",
     BottomTab : 'BottomTab',
-    Home : 'Screen1', 
+    Home : 'Home', 
     screen2 : 'Screen2',
     screen3 : 'Screen3',
     Instagram :'Instagram',

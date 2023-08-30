@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: '#37455e',
-    fontSize:18,
-    fontFamily:'serif',
+    fontSize: 18,
+    fontFamily: 'serif',
   },
   button: {
     backgroundColor: '#4d5b74',
@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontWeight: 'bold',
-    fontFamily:'serif',
-    fontSize:20,
+    fontFamily: 'serif',
+    fontSize: 20,
   },
   list: {
     marginTop: 10,

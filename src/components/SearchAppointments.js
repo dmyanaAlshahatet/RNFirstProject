@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, FlatList, Image, TouchableOpacity, StyleSheet, Keyboard} from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const AppointmentsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,12 +13,10 @@ const AppointmentsScreen = () => {
       attendees: [
         { id: 1, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
         { id: 2, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar2.png' },
-        { id: 3, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar8.png' },
-        { id: 4, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
-        { id: 5, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar3.png' },
       ],
       backgroundColor: '#ffdcb2',
       titleColor: '#ff8c00',
+
     },
     {
       id: 2,
@@ -55,7 +54,6 @@ const AppointmentsScreen = () => {
       attendees: [
         { id: 15, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar2.png' },
         { id: 16, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar4.png' },
-        { id: 17, remoteImage: 'https://bootdey.com/img/Content/avatar/avatar6.png' },
       ],
       backgroundColor: '#d8e4fa',
       titleColor: '#6495ed',
@@ -63,7 +61,16 @@ const AppointmentsScreen = () => {
     // Add more appointments here
   ]);
 
-  const renderAppointmentCard = ({ item }) => (
+  const removeAppointment = (key) => {
+    setAppointments(appointments.filter((t ,id) => id.key !== key));
+  };
+
+  const removeAppointmentById = (id) => {
+    setAppointments(appointments.filter((t) => t.id !== id));
+
+  };
+
+  const renderAppointmentCard = ({ item , id}) => (
     <View style={[styles.card, { backgroundColor: item.backgroundColor }]}>
       <Text style={[styles.cardTitle, { color: item.titleColor }]}>{item.title}</Text>
       <View style={styles.cardDates}>
@@ -72,8 +79,16 @@ const AppointmentsScreen = () => {
       </View>
       <View style={styles.cardContent}>
         <View style={styles.attendeesContainer}>
+          <Entypo
+            name="cross"
+            size={20} color="gray"
+            style={{ marginRight: 10 }}
+            onPress={() => {
+              removeAppointment(item.key);
+            }} />
           {item.attendees.map((attendee) => (
             <Image key={attendee.id} source={{ uri: attendee.remoteImage }} style={styles.attendeeImage} />
+
           ))}
         </View>
         <View style={styles.buttonsContainer}>
@@ -98,14 +113,14 @@ const AppointmentsScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Appointments</Text>
+      <Text style={styles.title}>Account Info</Text>
       <TextInput
         style={styles.searchInput}
-        placeholder="Search"
+        placeholder="Search . . ."
         value={searchQuery}
         onChangeText={setSearchQuery}
       />
-      <FlatList 
+      <FlatList
         contentContainerStyle={styles.listContainer}
         data={appointments.filter(searchFilter)}
         renderItem={renderAppointmentCard}
@@ -121,19 +136,29 @@ const styles = StyleSheet.create({
     padding: 10,
     // paddingTop:60,
   },
-  listContainer:{
-    paddingHorizontal:10
+  listContainer: {
+    paddingHorizontal: 10,
+    // borderWidth: 1,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: "black",
+    fontFamily: 'serif',
   },
-  searchInput: {/////////////////////////////////////////////////////8
+  // row:{
+  //   flexDirection:"row",
+  //   // borderWidth: 1,
+  //   justifyContent:'space-between',
+  // },
+  searchInput: {
     height: 40,
+    fontFamily: 'serif',
+    fontWeight: 'bold',
     borderWidth: 2,
-    borderRadius:5,
-    borderColor:'#A9A9A9',
+    borderRadius: 20,
+    borderColor: '#A9A9A9',
     marginBottom: 10,
     paddingHorizontal: 10,
   },
@@ -141,15 +166,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     padding: 10,
     borderRadius: 5,
+    // borderWidth: 1,
   },
   cardTitle: {
-    fontSize:18,
+    fontSize: 18,
     fontWeight: 'bold',
     paddingVertical: 5,
+    // borderWidth: 1,
   },
   cardDates: {
     flexDirection: 'row',
     paddingVertical: 5,
+    // borderWidth: 1,
   },
   cardDate: {
     color: '#888',
@@ -157,24 +185,28 @@ const styles = StyleSheet.create({
   cardContent: {
     justifyContent: 'space-between',
     paddingTop: 10,
+    // borderWidth: 1,
   },
   attendeesContainer: {
     flexDirection: 'row',
     paddingHorizontal: 10,
+    // borderWidth: 1,
   },
   attendeeImage: {
     width: 40,
     height: 40,
     borderRadius: 20,
     marginLeft: -10,
-    borderWidth:0.5,
+    borderWidth: 0.5,
   },
   buttonsContainer: {
     flexDirection: 'row',
+    // borderWidth: 1,
   },
   actionButton: {
-    marginTop:15,
-    backgroundColor: '#DCDCDC',
+    // borderWidth: 1,
+    marginTop: 15,
+    backgroundColor: 'white',
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 5,

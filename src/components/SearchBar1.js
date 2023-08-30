@@ -62,7 +62,7 @@ const SearchBar = () => {
           style={styles.input}
           placeholder="Search"
           autoCorrect={false}
-          clearButtonMode='always'
+          clearButtonMode='always' //for ios
           value={input}
           onChangeText={(text) => setInput(text)}
         />
@@ -71,7 +71,7 @@ const SearchBar = () => {
             <MaterialIcons
               name="cancel"
               size={24} color="black"
-              style={{}}
+              // style={{}}
               onPress={() => {
                 Keyboard.dismiss();
                 setInput("")
@@ -89,13 +89,13 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
   container: {
-    // borderWidth: 1,
+    flex: 1,
     margin: 15,
     justifyContent: "flex-start",
     // alignItems: "center",
     // flexDirection: "row",
-    
-    width: "90%",
+    // borderWidth: 1,
+    // width: "90%",
   },
   searchBar__unclicked: {
     // borderWidth: 1,
