@@ -1,10 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import RNFirstProjectContext from '../../../Store/RNFirstProjectContext'
 import ScreenNames from '../../../route/screenNames'
+import { getAllUsers } from '../../res/api/api'
 
 
 const Screen1 = (props) => {
+
+    const [users, setUsers] = useState([]);
+    const getAllUsersFromApi = () => {
+        getAllUsers().then(res => {
+            console.log("all users: ", res);
+            setUsers(res);
+        });
+    };
+
+    useEffect(() => {
+        getAllUsersFromApi();
+    }, []);
+
+
     const { Home_c, setHome1_c, scree2_c } = useContext(RNFirstProjectContext)
 
     const navigateToScreen2 = () => {
