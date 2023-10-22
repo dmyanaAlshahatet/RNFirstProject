@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View ,colors} from 'react-native'
 import RNFirstProjectContext from '../../../Store/RNFirstProjectContext'
 import ScreenNames from '../../../route/screenNames'
 import { getAllUsers } from '../../res/api/api'
+import { useTheme } from '@react-navigation/native';//new
 
 
 const Screen1 = (props) => {
@@ -22,13 +23,13 @@ const Screen1 = (props) => {
 
     const { Home_c, setHome1_c, scree2_c } = useContext(RNFirstProjectContext)
 
-    const navigateToScreen2 = () => {
-        setScreen1_c(Home_c + 1)
-        props.navigation.navigate(ScreenNames.screen2)
-    }
+    // const navigateToScreen2 = () => {
+    //     setHome1_c(Home_c + 1)
+    //     props.navigation.navigate(ScreenNames.screen2)
+    // }
 
     const navigateToScreen3 = () => {
-        setScreen1_c(Home_c + 1)
+        setHome1_c(Home_c + 1)
         props.navigation.navigate(ScreenNames.screen3)
     }
 
@@ -40,20 +41,29 @@ const Screen1 = (props) => {
         props.navigation.navigate(ScreenNames.Instagram)
     }
     const navigateToAppointments = () => {
-        props.navigation.navigate(ScreenNames.searchAppointments)
+        props.navigation.navigate(ScreenNames.SearchUsers)
+    }
+
+    const navigateToInstagramHome = () => {
+        props.navigation.navigate(ScreenNames.InstagramHome)
+    }
+    const TasksToDo = () => {
+        props.navigation.navigate(ScreenNames.TasksToDo)
     }
 
 
     console.log("screeHome_c: ", Home_c);
 
+    const MyButton = () => {
+        const { colors } = useTheme();
+    }
 
     return (
         <View >
             <View style={styles.container}>
-                <TouchableOpacity style={styles.btn} onPress={navigateToScreen2} >
-                    <Text style={styles.btnTitle}> navigate to Screen2</Text>
-                </TouchableOpacity>
-
+                {/* <TouchableOpacity style={{ backgroundColor: colors.card }}>
+                    <Text style={{ color: colors.text }}>Button!</Text>
+                </TouchableOpacity> */}
                 <TouchableOpacity style={styles.btn} onPress={navigateToScreen3} >
                     <Text style={styles.btnTitle}> navigate to Screen3</Text>
                 </TouchableOpacity>
@@ -62,17 +72,16 @@ const Screen1 = (props) => {
                     <Text style={styles.btnTitle} > navigate to Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.btn} onPress={navigateToInstagram}>
+                <TouchableOpacity style={styles.btn} onPress={TasksToDo}>
                     <Text style={styles.btnTitle}>TasksToDo</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.btn} onPress={navigateToAppointments}>
-                    <Text style={styles.btnTitle}>SearchAppointments</Text>
+                <TouchableOpacity style={styles.btn} onPress={navigateToInstagramHome}>
+                    <Text style={styles.btnTitle}>Home</Text>
                 </TouchableOpacity>
             </View>
             <Text style={styles.screenTitle}>Home Page</Text>
         </View>
-
     )
 }
 
@@ -119,3 +128,17 @@ const styles = StyleSheet.create({
 
     },
 })
+
+
+
+
+// function MyButton() {
+//     const { colors } = useTheme();
+
+//     return (
+//         <TouchableOpacity style={{ backgroundColor: colors.card }}>
+//             <Text style={{ color: colors.text }}>Button!</Text>
+//         </TouchableOpacity>
+//     );
+// }
+

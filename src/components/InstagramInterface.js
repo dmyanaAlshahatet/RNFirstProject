@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign'; 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'; 
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 
 const InstagramInterface = (props) => {
@@ -15,7 +15,7 @@ const InstagramInterface = (props) => {
     'https://shop.dith-software.de/media/image/product/602747/md/boss-baby-the-br-min-98-dd51-ws-dreamworks-neues-cover_1.png',
     'https://tr.rbxcdn.com/47b74d2195f2570793f763e88963f4a3/500/280/Image/Jpeg',
   ]);
-  
+
   const [postCount, setPostCount] = useState(6);
   const [followingCount, setFollowingCount] = useState(250);
   const [followerCount, setFollowerCount] = useState(1000);
@@ -34,33 +34,32 @@ const InstagramInterface = (props) => {
 
   return (
     <View style={styles.container}>
-    {/* <Text style={styles.postButton}> Add Post</Text> */}
-    {/* <View style={styles.postButtonChat}> */}
-    <View style={styles.postButtonChat} >
-    <View style={styles.goHomeIcon}>
-      <TouchableOpacity onPress={goHome}>
-        <AntDesign name='arrowleft' size={30} color= 'black'/>
-      </TouchableOpacity>
-    </View>
-    <Text style={styles.acountName}>Instagram</Text>
-    </View>
-    <View style={styles.header}>
-       <View style={styles.postButtonChat}>
-        <View style={styles.postButton}>
-       <TouchableOpacity onPress={addPost}>
-       <MaterialIcons name='post-add' size={37} color= 'black'/>
-        {/* <Text style={styles.postButton}>+ post</Text> */}
-       </TouchableOpacity> 
-       </View>
-       <View style={styles.chat}>
-       <TouchableOpacity>
-       <AntDesign name='wechat' size={35} color= 'black'/>
-       </TouchableOpacity>
-       </View>
-       {/* <Image style={styles.chat} source={{ uri: 'https://cdn.statically.io/img/i.pinimg.com/originals/f0/70/3e/f0703e34b09159d23b2a6b3abcbcecb8.jpg' }}/> */}
-       </View>
+      {/* <Text style={styles.postButton}> Add Post</Text> */}
+      {/* <View style={styles.postButtonChat}> */}
+      <View style={styles.postButtonChat} >
+        <View style={styles.goHomeIcon}>
+          <TouchableOpacity onPress={goHome}>
+            <AntDesign name='arrowleft' size={30} color='black' />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.acountName}>Instagram</Text>
+      </View>
+      <View style={styles.header}>
+        <View style={styles.postButtonChat}>
+          <View style={styles.postButton}>
+            <TouchableOpacity onPress={addPost}>
+              <MaterialIcons name='post-add' size={37} color='black' />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.chat}>
+            <TouchableOpacity>
+              <AntDesign name='wechat' size={35} color='black' />
+            </TouchableOpacity>
+          </View>
+          {/* <Image style={styles.chat} source={{ uri: 'https://cdn.statically.io/img/i.pinimg.com/originals/f0/70/3e/f0703e34b09159d23b2a6b3abcbcecb8.jpg' }}/> */}
+        </View>
         <View style={styles.headerContent}>
-          <Image style={styles.avatar} source={{ uri: 'https://arenamax.com.ua/wp-content/uploads/2021/11/rostovaja-figura-boss-molokosos-the-boss-baby-1500-mm..jpg' }}/>
+          <Image style={styles.avatar} source={{ uri: 'https://arenamax.com.ua/wp-content/uploads/2021/11/rostovaja-figura-boss-molokosos-the-boss-baby-1500-mm..jpg' }} />
           <Text style={styles.name}>@Boss_Baby</Text>
           <View style={styles.statsContainer}>
             <View style={styles.statsBox}>
@@ -81,7 +80,7 @@ const InstagramInterface = (props) => {
       <ScrollView contentContainerStyle={styles.body}>
         {images.map((image, index) => (
           <View key={index} style={styles.imageContainer}>
-            <Image style={styles.image} source={{ uri: image }}/>
+            <Image style={styles.image} source={{ uri: image }} />
           </View>
         ))}
       </ScrollView>
@@ -92,64 +91,64 @@ const InstagramInterface = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'white',
+    backgroundColor: 'white',
     boxWithShadow: {
       elevation: 10
-  }
+    }
   },
   header: {
     // borderWidth:1,
     alignItems: 'center',
     padding: 10,
-    marginTop:20,
+    // marginTop: 20,
   },
-  postButtonChat:{
+  postButtonChat: {
     flexDirection: 'row',
-    marginBottom:15,
+    marginBottom: 15,
     // borderWidth:1,
-    justifyContent:'space-between',  
+    justifyContent: 'space-between',
   },
   headerContent: {
-  //  borderWidth:1,
-   alignItems: 'center',
+    //  borderWidth:1,
+    alignItems: 'center',
   },
-  acountName:{
+  acountName: {
     // borderWidth:1,
-    marginLeft:4,
-    marginRight:10,
-    marginTop:15,
-    fontSize:25,
-    fontStyle:'italic',
-    fontFamily:'serif',
+    marginLeft: 4,
+    marginRight: 10,
+    marginTop: 15,
+    fontSize: 25,
+    fontStyle: 'italic',
+    fontFamily: 'serif',
     fontWeight: 'bold',
-    color:'black',
+    color: 'black',
   },
-  goHomeIcon:{
+  goHomeIcon: {
     // borderWidth:1,
-    marginTop:15,
-    marginRight:230
+    marginTop: 15,
+    marginRight: 230
   },
-  postButton:{
+  postButton: {
     // borderWidth:1,
-    marginRight:265,
+    marginRight: 265,
     // marginLeft:5,
-    marginTop:20,
-    fontSize:22,
-    fontStyle:'italic',
-    fontFamily:'serif',
+    marginTop: 20,
+    fontSize: 22,
+    fontStyle: 'italic',
+    fontFamily: 'serif',
     fontWeight: 'bold',
-    color:'black',
-    marginBottom:10,
+    color: 'black',
+    marginBottom: 10,
   },
-  chat:{
+  chat: {
     // width: 60,
     // height: 35,
     // marginLeft:290,
     // borderWidth:1,
     // borderRadius: 1,
-    marginTop:20,
-    margin:10,
-  
+    marginTop: 20,
+    margin: 10,
+
   },
   avatar: {
     width: 130,
@@ -203,4 +202,4 @@ const styles = StyleSheet.create({
     // borderWidth:1,
   },
 });
-export default InstagramInterface ;
+export default InstagramInterface;

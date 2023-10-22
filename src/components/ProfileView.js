@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity , useColorScheme} from 'react-native';
 import RNFirstProjectContext from '../../Store/RNFirstProjectContext';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // import shadow from 'react-na/tive-paper/lib/typescript/src/styles/shadow';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const ProfileView = (props) => {
+
+  const colorScheme = useColorScheme();
     
   const profileData = {
     name: 'Boss Baby',
@@ -20,6 +22,10 @@ const ProfileView = (props) => {
 
   const handleSubmit = () => {
     props.navigation.navigate('Instagram')
+  }
+
+  const goHome = () => {
+    props.navigation.goBack()
   }
 
   // const generateBoxShadowStyle = (
@@ -49,6 +55,7 @@ const ProfileView = (props) => {
 
   return (
     <View style={styles.container}>
+      
       <View style={styles.profileContainer}>
         <Image style={styles.profile}
           source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9bcU8_C37sTTeYcd3bPPvEyeM82PA1WRDg&usqp=CAU'}}
@@ -97,7 +104,7 @@ const ProfileView = (props) => {
     </View>
   );
 };
-// generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717');/*********new change************/
+// generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717');/*********new change**********/
 
 const styles = StyleSheet.create({
   container: {

@@ -1,5 +1,7 @@
+import "react-native-gesture-handler"; // must be the First line of the project
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme } from 'react-native';
+import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
 
 const TasksToDo = () => {
   const [task, setTask] = useState('');
@@ -14,7 +16,11 @@ const TasksToDo = () => {
     setTasks(tasks.filter((t) => t.key !== key));
   };
 
+  const colorScheme = useColorScheme();
+
   return (
+    // <GestureHandlerRootView>
+    // {/* <Swipeable> */}
     <View style={styles.container}>
       <TextInput
         style={styles.input}
@@ -34,10 +40,17 @@ const TasksToDo = () => {
             <TouchableOpacity onPress={() => removeTask(item.key)}>
               <Text>X</Text>
             </TouchableOpacity>
+            {/* <Text style={{ color: colorScheme === 'dark' ? 'white' : 'white', }}>
+              Current Color Scheme: {colorScheme}
+            </Text> */}
+
           </View>
         )}
       />
+      <Text>Current Color Scheme: {colorScheme}</Text>
     </View>
+    // {/* </Swipeable> */}
+    // </GestureHandlerRootView>
   );
 };
 

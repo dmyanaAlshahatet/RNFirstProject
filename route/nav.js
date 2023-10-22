@@ -1,19 +1,21 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DarkTheme, DefaultTheme, } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { useColorScheme } from 'react-native';
 import { Text, View } from "react-native";
 import Home from "../src/components/screens/Home";
-import Screen2 from "../src/components/screens/Screen2";
-import Screen3 from "../src/components/screens/Screen3";
 import ProfileView from "../src/components/ProfileView";
 import TasksList from "../src/components/TasksList";
 import InstagramInterface from "../src/components/InstagramInterface";
-import SearchAppointments from "../src/components/SearchAppointments";
+import SearchUsers from "../src/components/SearchUsers";
 import BottomTab from "./BottomTab";
 import ScreenNames from "./screenNames";
 import SearchBar1 from "../src/components/SearchBar1";
 import Splash from "../src/components/screens/Splash";
+import SwipeBox from "../src/components/SwipeBox";
+import InstagramHome from "../src/components/InstagramHome";
+// import { ThemeProvider } from './src/context/ThemeContext';
+// import Theme from "../src/components/Theme";
 
 
 
@@ -21,21 +23,46 @@ const MainNavigation = (props) => {
 
     const Stack = createNativeStackNavigator()
 
+    const colorScheme = useColorScheme();
+
+    // const MyTheme = {
+    //     ...DefaultTheme,
+    //     colors: {
+    //         ...DefaultTheme.colors,
+    //         primary: 'rgb(255, 45, 85)',
+    //     },
+    // };
+
+    // const MyTheme = {
+    //     dark: false,
+    //     colors: {
+    //         primary: 'rgb(255, 45, 85)',
+    //         background: 'rgb(242, 242, 242)',
+    //         card: 'rgb(255, 255, 255)',
+    //         text: 'rgb(28, 28, 30)',
+    //         border: 'rgb(199, 199, 204)',
+    //         notification: 'rgb(255, 69, 58)',
+    //     },
+    // };
+
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name={ScreenNames.Splash} component={Splash} options={{ headerShown: false }} />
-                {/* <Stack.Screen name={ScreenNames.Home} component={Home} options={{ headerShown: false }} /> */}
-                <Stack.Screen name={ScreenNames.searchAppointments} component={SearchAppointments} options={{ headerShown: false }} />
-                {/* <Stack.Screen name={ScreenNames.screen2} component={Screen2} options={{ headerShown: false }} /> */}
-                {/* <Stack.Screen name={ScreenNames.screen3} component={Screen3} options={{ headerShown: false }} /> */}
-                {/* <Stack.Screen name={ScreenNames.Login} component={ProfileView} options={{ headerShown: false }} /> */}
-                {/* <Stack.Screen name={ScreenNames.TasksToDo} component={TasksList} options={{ headerShown: false }} /> */}
-                {/* <Stack.Screen name={ScreenNames.searchBar} component={SearchBar1} options={{ headerShown: false }} /> */}
-                {/* <Stack.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{ headerShown: false }} /> */}
-                <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <ThemeProvider>
+            <NavigationContainer >
+                <Stack.Navigator initialRouteName="Login">
+                    <Stack.Screen name={ScreenNames.Splash} component={Splash} options={{ headerShown: false }} />
+                    <Stack.Screen name={ScreenNames.InstagramHome} component={InstagramHome} options={{ headerShown: false }} />
+                    <Stack.Screen name={ScreenNames.Home} component={Home} options={{ headerShown: false }} />
+                    <Stack.Screen name={ScreenNames.SearchUsers} component={SearchUsers} options={{ headerShown: false }} />
+                    {/* <Stack.Screen name={ScreenNames.Theme} component={Theme} options={{ headerShown: false }} /> */}
+                    {/* <Stack.Screen name={ScreenNames.SwipeBox} component={SwipeBox} options={{ headerShown: false }} /> */}
+                    {/* <Stack.Screen name={ScreenNames.Login} component={ProfileView} options={{ headerShown: false }} /> */}
+                    <Stack.Screen name={ScreenNames.TasksToDo} component={TasksList} options={{ headerShown: false }} />
+                    {/* <Stack.Screen name={ScreenNames.searchBar} component={SearchBar1} options={{ headerShown: false }} /> */}
+                    {/* <Stack.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{ headerShown: false }} /> */}
+                    <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </ThemeProvider>
     )
 }
 
