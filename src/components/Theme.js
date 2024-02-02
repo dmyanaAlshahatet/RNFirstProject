@@ -1,51 +1,48 @@
-import React, { useContext } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import ThemeContext from './src/context/ThemeContext';
+// import React, { useEffect, useState } from 'react';
+// import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+// import { useColorScheme } from 'react-native-appearance';
 
-const Theme = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext);
 
-    const handleToggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        toggleTheme(newTheme);
-    };
+// const App = () => {
+//   const colorScheme = useColorScheme();
+//   const [isDarkMode, setIsDarkMode] = useState(colorScheme === 'dark');
 
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: theme === 'dark' ? 'black' : 'white',
-        },
-        text: {
-            color: theme === 'dark' ? 'white' : 'black',
-        },
-        button: {
-            color: theme === 'dark' ? 'black' : 'white',
-        },
-    });
+//   useEffect(() => {
+//     setIsDarkMode(colorScheme === 'dark');
+//   }, [colorScheme]);
 
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Home page</Text>
-            <TouchableOpacity onPress={handleToggleTheme} style={styles.button}>
-                <Text style={styles.button}>
-                    Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
-                </Text>
-            </TouchableOpacity>
-        </View>
-    );
-};
-export default Theme;
+//   const toggleTheme = () => {
+//     // قم بتغيير السمة الحالية هنا (يمكنك استخدام واجهة API الخاصة بتحكم السمة في التطبيق)
+//     setIsDarkMode(!isDarkMode);
+//   };
 
-const styles = StyleSheet.create({
-    container:{
-        flex:1,  
-    },
-    button: {
-        marginTop: 10,
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        backgroundColor: theme === 'dark' ? '#fff' : '#000',
-    },
-})
+//   return (
+//     <View style={[styles.container, isDarkMode && styles.darkContainer]}>
+//       <TouchableOpacity onPress={toggleTheme}>
+//         <Image
+//           source={isDarkMode ? require('./dark-theme-icon.png') : require('./light-theme-icon.png')}
+//           style={styles.themeIcon}
+//         />
+//       </TouchableOpacity>
+//       <p>Your app content goes here.</p>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backgroundColor: '#fff',
+//   },
+//   darkContainer: {
+//     backgroundColor: '#333',
+//   },
+//   themeIcon: {
+//     width: 50,
+//     height: 50,
+//   },
+// });
+
+// export default App;

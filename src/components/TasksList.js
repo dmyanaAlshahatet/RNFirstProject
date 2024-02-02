@@ -5,7 +5,7 @@ import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler'
 
 const TasksToDo = () => {
   const [task, setTask] = useState('');
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(['']);
 
   const addTask = () => {
     setTasks([...tasks, { task, key: tasks.length.toString() }]);

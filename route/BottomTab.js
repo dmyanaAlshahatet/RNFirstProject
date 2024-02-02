@@ -1,7 +1,6 @@
 import { StyleSheet, Image, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
-import Home from '../src/components/screens/Home';
 import ProfileView from '../src/components/ProfileView';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -13,6 +12,8 @@ import TasksList from "../src/components/TasksList";
 import SwipeBox from "../src/components/SwipeBox";
 import SearchUsers from "../src/components/SearchUsers";
 import InstagramHome from "../src/components/InstagramHome";
+import ShoppingCart from '../src/components/ShoppingCart';
+import ThemedComponent from '../src/context/ThemeContext';
 // import { MaterialBottomTabView } from '@react-navigation/material-bottom-tabs';
 
 
@@ -62,20 +63,19 @@ const BottomTab = () => {
       })}
     >
 
-      {/* <Tab.Screen name="Home" component={InstagramHome} options={{ headerShown:false, tabBarBadge: 1, tabBarLabelPosition: 'below-icon', tabBarBadgeStyle: { backgroundColor: 'red' }
-        // tabBarIcon: (focused) => (
-        //   <Image style={styles.BottomTab} source={
-        //     focused
-        //       ? { uri: 'https://example.com/jane-doe-avatar.png' }
-        //       : { uri: 'https://www.bootdey.com/image/250x250/008B8B/008B8B' }
-        //   } />
-        // )
-      }} /> */}
+      <Tab.Screen name="Home" component={InstagramHome} options={{
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <Image style={styles.BottomTab}
+            source={focused ? require('../src/components/images/baby-boss.png') : require('../src/components/images/Boss_Baby.jpg')}
+          />
+        ),
+      }}
+      />
       <Tab.Screen name="Login" component={ProfileView} options={{ headerShown: false }} />
-      {/* <Tab.Screen name={ScreenNames.SwipeBox} component={SwipeBox} options={{ headerShown: false }} /> */}
+      {/* <Tab.Screen name='Theme' component={ThemedComponent} options={{ headerShown: false }} /> */}
       <Tab.Screen name="search" component={SearchUsers} options={{ headerShown: false }} />
-      {/* <Tab.Screen name='TasksToDo' component={TasksList} options={{ headerShown: false }} /> */}
-      <Tab.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{ headerShown: false}} />
+      <Tab.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{ headerShown: false }} />
     </Tab.Navigator>
   )
 }
@@ -84,8 +84,13 @@ export default BottomTab
 
 const styles = StyleSheet.create({
   backgroundColor: '#ffc125',
-  // height: 90,
-  borderRadius: 5,
+  _borderRadius: 5,
+  get borderRadius() {
+    return this._borderRadius;
+  },
+  set borderRadius(value) {
+    this._borderRadius = value;
+  },
   borderWidth: 1,
   shadowColor: 'blue',
   elevation: 10,
@@ -99,8 +104,10 @@ const styles = StyleSheet.create({
   // },
 
   BottomTab: {
-    width: 24,
-    height: 24,
-    borderRadius: 50
+    width: 30,
+    height: 30,
+    // borderRadius: 50,
+    // borderWidth: 1,
+    borderRadius: 15,
   },
 })

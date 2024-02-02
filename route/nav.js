@@ -14,8 +14,8 @@ import SearchBar1 from "../src/components/SearchBar1";
 import Splash from "../src/components/screens/Splash";
 import SwipeBox from "../src/components/SwipeBox";
 import InstagramHome from "../src/components/InstagramHome";
-// import { ThemeProvider } from './src/context/ThemeContext';
-// import Theme from "../src/components/Theme";
+// import { ThemeProvider } from '../src/context/ThemeContext';
+import Theme from "../src/components/Theme";
 
 
 
@@ -46,7 +46,7 @@ const MainNavigation = (props) => {
     // };
 
     return (
-        <ThemeProvider>
+        // <ThemeProvider>
             <NavigationContainer >
                 <Stack.Navigator initialRouteName="Login">
                     <Stack.Screen name={ScreenNames.Splash} component={Splash} options={{ headerShown: false }} />
@@ -62,7 +62,7 @@ const MainNavigation = (props) => {
                     <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
                 </Stack.Navigator>
             </NavigationContainer>
-        </ThemeProvider>
+        // </ThemeProvider>
     )
 }
 
