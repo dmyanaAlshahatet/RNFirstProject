@@ -5,6 +5,18 @@ export const getAllUsers = async () => {
     return await appFetch(route, 'GET', null);
 };
 
+export const loginUser = async(email , passwprd) => {
+    const route = "/Login"
+    console.log("mail, password", email, "login");
+    const body = {
+        email: email,
+        passwprd:passwprd
+    }
+    return await appFetch (route,"POST", body)
+}
+
+
+
 const appFetch = async (route, method, body) => {
     const url = domain + route;
 

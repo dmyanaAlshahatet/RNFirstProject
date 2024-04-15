@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ActivityIndicator, animating } from 'react-native'
+import { StyleSheet, Text, View, Image, ActivityIndicator, animating, ImageBackground } from 'react-native'
 import React, { useState } from 'react';
 import ScreenNames from '../../../route/screenNames'
 
@@ -15,20 +15,27 @@ const SplashScreen = (props) => {
   React.useEffect(() => {
     setTimeout(() => {
       Fun()
-    }, 1.5 * 1000)
+    }, 1.5 * 1300)
   }, []);
 
 
   return (
-    <View style={styles.container} >
-      <Image style={styles.imageSplash} source={{ uri: 'https://i1.wp.com/somostechbros.com/wp-content/uploads/2021/03/Instagram-Live-Room-TechBros-1.jpg?fit=1920%2C1080' }} />
-      <ActivityIndicator
+    <View style={styles.container}>
+    <ImageBackground source={require('../images/logo.jpg')} 
+    style={styles.imageSplash}
+    imageStyle ={styles.imageStyle}>
+      {/* <Image style={styles.imageSplash} source={{ uri: 'https://i1.wp.com/somostechbros.com/wp-content/uploads/2021/03/Instagram-Live-Room-TechBros-1.jpg?fit=1920%2C1080' }} /> */}
+      {/* <ActivityIndicator
         animating={animating}
         color='#483d8b'
         size="large"
         style={styles.activityIndicator}
-      />
-      <Text style={styles.wellcomeSentence}>Wellcome To The App!</Text>
+      /> */}
+      <Text style={styles.wellcomeSentence}>Wellcome To Your Community!</Text>
+      <View style={styles.line} >
+        <Image source={require('../images/instagram.png')} style={styles.icon} />
+      </View>
+    </ImageBackground>
     </View>
   )
 }
@@ -40,30 +47,50 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'black',
+    
   },
-  activityIndicator: {
-    alignItems: 'center',
-    // marginBottom:10,
-    height: 80,
-    // borderWidth:1,
-  },
+  // activityIndicator: {
+  //   alignItems: 'center',
+  //   marginTop:500,
+  //   // height: ,
+  //   // borderWidth:1,
+  // },
   imageSplash: {
     resizeMode: 'contain',
     alignContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 30,
-    width: "50%",
+    width: "100%",
     height: "50%",
+    
   },
-  wellcomeSentence:{
-    justifyContent: 'center',
-    fontSize:20,
-    fontFamily:'serif',
+  wellcomeSentence: {
+    fontSize: 16,
+    fontFamily: 'serif',
     fontWeight: 'bold',
-    color:'black',
-    marginTop:40,
-   // fontStyle:'italic',
+    color: '#fff0f5',
+    marginTop: 80,
+    fontStyle: 'italic',
   },
+  line: {
+    marginTop: 70,
+     height: 0.6,
+    //  borderRadius:10,
+    //  borderWidth: 1,
+     width:'35%',
+    backgroundColor: 'pink',
+    justifyContent: 'center',
+    
+  },
+  icon: {
+    width: 20,
+    height: 20,
+    marginLeft:60,
+  },
+  imageStyle:{
+    borderRadius: 20,
+    overflow:'hidden',
+  },
+
 })

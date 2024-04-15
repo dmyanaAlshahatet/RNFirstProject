@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity , useColorScheme} from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
 import RNFirstProjectContext from '../../Store/RNFirstProjectContext';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // import shadow from 'react-na/tive-paper/lib/typescript/src/styles/shadow';
@@ -8,7 +8,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 const ProfileView = (props) => {
 
   const colorScheme = useColorScheme();
-    
+
   const profileData = {
     name: 'Boss Baby',
     email: 'boss.baby@example.com',
@@ -51,16 +51,16 @@ const ProfileView = (props) => {
   //     };
   //   }
   // };
-/*********************************Test***************************************/
+  /*********************************Test***************************************/
 
   return (
     <View style={styles.container}>
-      
+
       <View style={styles.profileContainer}>
         <Image style={styles.profile}
-          source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9bcU8_C37sTTeYcd3bPPvEyeM82PA1WRDg&usqp=CAU'}}
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9bcU8_C37sTTeYcd3bPPvEyeM82PA1WRDg&usqp=CAU' }}
         />
-        <TouchableOpacity style={styles.changeProfileButton} onPress={() => {/* open image picker */}}>
+        <TouchableOpacity style={styles.changeProfileButton} onPress={() => {/* open image picker */ }}>
           <Text style={styles.changeProfileButtonText}>Change profile</Text>
         </TouchableOpacity>
       </View>
@@ -95,8 +95,8 @@ const ProfileView = (props) => {
         <AntDesign.Button
           name="facebook-square"
           backgroundColor="#3b5998"
-          Icon size = {20}
-          iconStyle = {{marginRight: 5 ,borderRadius:19}}
+          Icon size={20}
+          iconStyle={{ marginRight: 5, borderRadius: 19 }}
           onPress={this.loginWithFacebook}>
           Login with Facebook
         </AntDesign.Button>
@@ -111,18 +111,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'white'
+    backgroundColor: 'white'
   },
   form: {
     width: '80%',
     // borderWidth:1,
-    elevation:34,
-    marginTop:15,
+    elevation: 34,
+    marginTop: 15,
     backgroundColor: 'white',
     borderRadius: 10,
-    padding:20,
-    shadowColor:'blue',
-    // borderWidth:1,
+    padding: 20,
+    shadowColor: 'blue',
     // shadowOffset:{
     // width:50,
     // height:50,
@@ -146,24 +145,24 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 6,
     paddingHorizontal: 20,
-   // textAlign:'center',
+    // textAlign:'center',
   },
   loginWithFacebook: {
     // borderWidth:1,
     borderRadius: 18,
   },
-  Or:{
+  Or: {
     fontSize: 15,
     color: 'black',
-    fontWeight:'bold',
+    fontWeight: 'bold',
     // borderWidth:1,
     // marginTop:20,
-    margin:10,
+    margin: 10,
   },
   buttonText: {
     color: 'white',
     fontSize: 18,
-    textAlign:'center',
+    textAlign: 'center',
   },
   profileContainer: {
     marginTop: 20,

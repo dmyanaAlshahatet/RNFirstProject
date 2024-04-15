@@ -108,7 +108,7 @@ const Users = (props) => {
 
   );
 
-  const searchFilter = (item) => {
+  const searchFilter = (item ) => {
     const query = searchQuery.toLowerCase();
     return item.title.toLowerCase().includes(query);
   };
@@ -127,18 +127,14 @@ const Users = (props) => {
           <TextInput
             style={styles.searchInput}
             placeholder="Search ..."
-            value={searchQuery}
+            value={searchFilter}
             onChangeText={setSearchQuery}
             onPress={() => {
               Keyboard.dismiss();
             }}
           />
           <TouchableOpacity>
-            <MaterialIcons
-              name="cancel"
-              size={24}
-              color="#696969"
-              style={{ marginRight: 5, marginTop: 7 }}
+            <MaterialIcons name="cancel" size={24} color="#696969"  style={{ marginRight: 5, marginTop: 7 }}
               onPress={() => {
                 Keyboard.dismiss();
                 setSearchQuery("")
@@ -148,7 +144,7 @@ const Users = (props) => {
       </View>
       <FlatList
         contentContainerStyle={styles.listContainer}
-        data={appointments}
+        data={appointments.filter(searchFilter)}
         renderItem={renderUsersCard}
         keyExtractor={(item) => item.id.toString()}
       />

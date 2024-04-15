@@ -14,5 +14,6 @@ const ScreenNames = {
     SearchUsers : 'SearchUsers',
     InstagramHome : 'InstagramHome',
     Theme : 'Theme',
+    AnimTap2 : "AnimTap2",
 }
 export default ScreenNames;

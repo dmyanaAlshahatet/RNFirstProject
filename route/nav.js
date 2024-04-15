@@ -14,6 +14,7 @@ import SearchBar1 from "../src/components/SearchBar1";
 import Splash from "../src/components/screens/Splash";
 import SwipeBox from "../src/components/SwipeBox";
 import InstagramHome from "../src/components/InstagramHome";
+import AnimTap2 from "./AnimTab2";
 // import { ThemeProvider } from '../src/context/ThemeContext';
 import Theme from "../src/components/Theme";
 
@@ -53,13 +54,9 @@ const MainNavigation = (props) => {
                     <Stack.Screen name={ScreenNames.InstagramHome} component={InstagramHome} options={{ headerShown: false }} />
                     <Stack.Screen name={ScreenNames.Home} component={Home} options={{ headerShown: false }} />
                     <Stack.Screen name={ScreenNames.SearchUsers} component={SearchUsers} options={{ headerShown: false }} />
-                    {/* <Stack.Screen name={ScreenNames.Theme} component={Theme} options={{ headerShown: false }} /> */}
-                    {/* <Stack.Screen name={ScreenNames.SwipeBox} component={SwipeBox} options={{ headerShown: false }} /> */}
-                    {/* <Stack.Screen name={ScreenNames.Login} component={ProfileView} options={{ headerShown: false }} /> */}
                     <Stack.Screen name={ScreenNames.TasksToDo} component={TasksList} options={{ headerShown: false }} />
-                    {/* <Stack.Screen name={ScreenNames.searchBar} component={SearchBar1} options={{ headerShown: false }} /> */}
-                    {/* <Stack.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{ headerShown: false }} /> */}
                     <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
+                    <Stack.Screen name={ScreenNames.AnimTap2} component={AnimTap2} options={{ headerShown: false }} />
                 </Stack.Navigator>
             </NavigationContainer>
         // </ThemeProvider>

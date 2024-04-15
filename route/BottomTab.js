@@ -37,6 +37,9 @@ const BottomTab = () => {
           } else if (route.name === 'search') {
             iconName = focused ? 'search' : 'search-outline';
             size = focused ? size + 6 : size + 5;
+          } else if (route.name === 'reels') {
+            iconName = focused ? 'search' : 'search-outline';
+            size = focused ? size + 6 : size + 5;
           }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -45,17 +48,18 @@ const BottomTab = () => {
           backgroundColor: '#ffc125',
           height: 80,
           shadowColor: '#000',
-          ...styles.shadow
+          // ...styles.shadow
         },
-        tabBarActiveTintColor: '#000',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'white',
         tabBarShowLabel: false,
         tabBarStyle: {
+          backgroundColor: '#000',
           marginBottom: 15,
           marginHorizontal: 10,
           position: 'absolute',
           borderRadius: 15,
-          borderTopColor: 'white',
+          borderTopColor: '#000',
           elevation: 10,
           shadowColor: '#000',
 
@@ -64,19 +68,25 @@ const BottomTab = () => {
     >
 
       <Tab.Screen name="Home" component={InstagramHome} options={{
-        headerShown: false,
-        tabBarIcon: ({ focused }) => (
-          <Image style={styles.BottomTab}
-            source={focused ? require('../src/components/images/baby-boss.png') : require('../src/components/images/Boss_Baby.jpg')}
-          />
-        ),
+        // headerShown: false,
+        // tabBarIcon: ({ focused }) => (
+        //   <Image style={styles.BottomTab}
+        //     source={focused ? require('../src/components/images/baby-boss.png') : require('../src/components/images/Boss_Baby.jpg')}
+        // />
+        // ),
       }}
       />
       <Tab.Screen name="Login" component={ProfileView} options={{ headerShown: false }} />
       {/* <Tab.Screen name='Theme' component={ThemedComponent} options={{ headerShown: false }} /> */}
       <Tab.Screen name="search" component={SearchUsers} options={{ headerShown: false }} />
-      <Tab.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{ headerShown: false }} />
-    </Tab.Navigator>
+      <Tab.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{
+        headerShown: false, tabBarIcon: ({ focused }) => (
+          <Image style={styles.BottomTab}
+            source={focused ? require('../src/components/images/baby-boss.png') : require('../src/components/images/Boss_Baby.jpg')}
+          />
+        ),
+      }} />
+    </Tab.Navigator >
   )
 }
 
