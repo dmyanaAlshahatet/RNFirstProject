@@ -19,5 +19,8 @@ const ScreenNames = {
     SearchContent : "SearchContent",
     Status : "Status",
     SearchBox :"SearhBox",
+    Stories : "Stories",
+    Post : "Post",
+    HomePage : "HomePage",
 }
 export default ScreenNames;

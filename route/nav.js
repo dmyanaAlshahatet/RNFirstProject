@@ -20,6 +20,8 @@ import SearchContent from "../src/components/SearchContent";
 import Search from "../src/components/screens/Search";
 import SearchBar from "../src/components/SearchBar1";
 import SearchBox from "../src/components/SearchBox";
+import Stories from "../src/components/Stories";
+import HomePage from "../src/components/screens/HomePage";
 
 
 const MainNavigation = (props) => {
@@ -45,8 +47,10 @@ const MainNavigation = (props) => {
                 <Stack.Screen name={ScreenNames.SearchUsers} component={SearchUsers} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.TasksToDo} component={TasksList} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
-                <Stack.Screen name={ScreenNames.SearchBox} component={SearchBox} options={{ headerShown: false }} />
+                <Stack.Screen name={ScreenNames.Status} component={Status} options={{ headerShown: false }} />
+                <Stack.Screen name={ScreenNames.HomePage} component={HomePage} options={{ headerShown: false }} />
                 {/* <Stack.Screen name={ScreenNames.AnimTap2} component={AnimTap2} options={{ headerShown: false }} /> */}
+
             </Stack.Navigator>
             <TouchableOpacity style={styles.iconContainer} onPress={toggleTheme}>
                 <Image source={theme === 'light' ? require('../src/components/images/sun.png') : require('../src/components/images/moon.png')} style={styles.iconImage} />

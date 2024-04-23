@@ -77,7 +77,7 @@ const Search = () => {
                 }}
               />
               <View style={{paddingLeft: 8}}>
-                <Text style={{fontSize: 12, fontWeight: '600'}}>
+                <Text style={{fontSize: 12, fontWeight: "bold", color:"black" }}>
                   the_anonymous_guy
                 </Text>
               </View>
@@ -91,9 +91,9 @@ const Search = () => {
                 alignItems: 'center',
                 padding: 8,
               }}>
-              <Entypo name="heart-outlined" style={{fontSize: 26}} />
-              <Ionicons name="person-outline" style={{fontSize: 26}} />
-              <Feather name="navigation" style={{fontSize: 26}} />
+              <Entypo name="heart-outlined" style={{fontSize: 26,color:"black"}} />
+              <Ionicons name="person-outline" style={{fontSize: 26,color:"black"}} />
+              <Feather name="navigation" style={{fontSize: 26,color:"black"}} />
             </View>
           </View>
         </View>

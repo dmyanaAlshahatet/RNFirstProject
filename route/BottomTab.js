@@ -18,6 +18,8 @@ import Status from '../src/components/Status';
 import SearchContent from '../src/components/SearchContent';
 import Search from '../src/components/screens/Search';
 import SearchBox from '../src/components/SearchBox';
+import Home from '../src/components/screens/HomePage';
+import HomePage from '../src/components/screens/HomePage';
 // import { MaterialBottomTabView } from '@react-navigation/material-bottom-tabs';
 
 
@@ -71,18 +73,9 @@ const BottomTab = () => {
       })}
     >
 
-      <Tab.Screen name="Home" component={InstagramHome} options={{
-        // headerShown: false,
-        // tabBarIcon: ({ focused }) => (
-        //   <Image style={styles.BottomTab}
-        //     source={focused ? require('../src/components/images/baby-boss.png') : require('../src/components/images/Boss_Baby.jpg')}
-        // />
-        // ),
-      }}
-      />
+      <Tab.Screen name="Home" component={HomePage} options={{}}/>
       <Tab.Screen name="Login" component={ProfileView} options={{ headerShown: false }} />
       <Tab.Screen name="search" component={Search} options={{ headerShown: false }} />
-      {/* <Tab.Screen name='Theme' component={ThemedComponent} options={{ headerShown: false }} /> */}
       {/* <Tab.Screen name="search" component={SearchUsers} options={{ headerShown: false }} /> */}
       <Tab.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{
         headerShown: false, tabBarIcon: ({ focused }) => (
