@@ -40,12 +40,12 @@ const Post = () => {
                                 <TouchableOpacity onPress={() => setLike(!like)}>
                                     <AntDesign
                                         name={like ? 'heart' : 'hearto'}
-                                        style={[styles.actionIcon, {color: like ? 'red' : 'black'}]}
+                                        style={[styles.actionIcon, { color: like ? 'red' : 'black' }]}
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity>
                                     <Ionic
-                                        name="ios-chatbubble-outline"
+                                        name="chatbubble-outline"
                                         style={styles.actionIcon}
                                     />
                                 </TouchableOpacity>
@@ -75,20 +75,20 @@ const Post = () => {
                                     placeholder="Add a comment "
                                     style={styles.commentInput}
                                 />
-                                <View style={styles.emojiIconsContainer}>
-                                    <Entypo
-                                        name="emoji-happy"
-                                        style={styles.emojiIcon}
-                                    />
-                                    <Entypo
-                                        name="emoji-neutral"
-                                        style={styles.emojiIcon}
-                                    />
-                                    <Entypo
-                                        name="emoji-sad"
-                                        style={styles.emojiIcon}
-                                    />
-                                </View>
+
+                                <Entypo
+                                    name="emoji-happy"
+                                    style={{ fontSize: 15, color: 'lightgreen', marginRight: 10 }}
+                                />
+                                <Entypo
+                                    name="emoji-neutral"
+                                    style={{ fontSize: 15, color: 'pink', marginRight: 10 }}
+                                />
+                                <Entypo
+                                    name="emoji-sad"
+                                    style={{ fontSize: 15, color: 'red' }}
+                                />
+
                             </View>
                         </View>
                     </View>
@@ -125,9 +125,11 @@ const styles = StyleSheet.create({
     postTitle: {
         fontSize: 15,
         fontWeight: 'bold',
+        color: 'black',
     },
     moreIcon: {
         fontSize: 20,
+        color: 'black',
     },
     postImageContainer: {
         position: 'relative',
@@ -152,9 +154,11 @@ const styles = StyleSheet.create({
     actionIcon: {
         paddingRight: 10,
         fontSize: 20,
+        color: 'black',
     },
     bookmarkIcon: {
         fontSize: 20,
+        color: 'black',
     },
     likesAndCommentsContainer: {
         paddingHorizontal: 15,
@@ -162,10 +166,12 @@ const styles = StyleSheet.create({
     likesText: {
         fontWeight: '700',
         fontSize: 14,
+        color: 'black',
         paddingVertical: 2,
     },
     commentsText: {
         opacity: 0.4,
+        color: 'black',
         paddingVertical: 2,
     },
     viewAllCommentsText: {
@@ -191,10 +197,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-    emojiIcon: {
-        fontSize: 15,
-        marginRight: 10,
-    },
+    // emojiIcon: {
+    //     fontSize: 15,
+    //     color: 'black',
+    //     marginRight: 10,
+    // }, // i wanted different colors of the emojis
 });
 
 export default Post;

@@ -4,25 +4,21 @@ import React from 'react'
 const SearchFilter = ({ data, input, setInput }) => {
   return (
     <View style={styles.container}>
-      <FlatList data={data} renderItem={({ item }) => {
-        if (input === "") {
-          return (
-            <View style={styles.programmingLanguages}>
-              <Text style={styles.names}>{item.name}</Text>
-              <Text style={styles.line} />
-            </View>
-          )
-        }
-
-        if (item.name.toLowerCase().includes(input.toLowerCase())) {
-          return (
-            <View style={styles.programmingLanguages}>
-              <Text style={styles.names}>{item.name}</Text>
-              <Text style={styles.line} />
-            </View>
-          )
-        }
-      }} />
+      <FlatList
+        data={data}
+        renderItem={({ item }) => {
+          if (input === "" || item.name.toLowerCase().includes(input.toLowerCase())) {
+            return (
+              <View style={styles.programmingLanguages}>
+                <Text style={styles.names}>{item.name}</Text>
+                <View style={styles.line} />
+              </View>
+            )
+          }
+          return null; // Render nothing if the condition doesn't match
+        }}
+        keyExtractor={(item) => item.id.toString()} // Add a key extractor for each item
+      />
     </View>
   )
 }
@@ -32,9 +28,7 @@ export default SearchFilter
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
-    fontSize: 30,
     padding: 10,
-    // borderWidth:1,
   },
   programmingLanguages: {
     marginVertical: 10,
@@ -44,7 +38,6 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     fontFamily: 'serif',
     color: 'black',
-    // fontWeight: 'bold',
   },
   line: {
     borderColor: "#d3d3d3",

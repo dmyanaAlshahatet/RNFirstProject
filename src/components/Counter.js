@@ -1,36 +1,30 @@
-import { StyleSheet, Text, View, Button, } from 'react-native'
-import React, { useEffect, useState } from 'react'
-
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
 
 const Counter = () => {
+    const [count, setCount] = useState(0);
 
-    const [x, setX] = useState(0)
-
-    //<Button title="+" onPress={() => setX(x + 1)}/> // if i want without a function.
-
-    const Increment = () => { setX(x + 1); }
-    const reset = () => { setX(0); }
-    const Discrement = () => {
-        if (x > 0) {
-            setX(x - 1)
-        }
-    }
+    const increment = () => { setCount(count + 1); };
+    const decrement = () => { if (count > 0) setCount(count - 1); };
+    const reset = () => { setCount(0); };
 
     return (
-        <View style={[styles.card]}>
-            <Text style={styles.text}>{x}</Text>
+        <View style={styles.card}>
+            <Text style={styles.text}>{count}</Text>
             <View style={styles.buttons}>
-                <View style={styles.IncrementCard}>
-                    <Button title="+" onPress={Increment} />
-                </View>
-                <View style={styles.DiscrementCard}>
-                    <Button title="-" onPress={Discrement} />
-                </View>
-                <Button title="reset" onPress={reset} />
+                <TouchableOpacity style={styles.button} onPress={increment}>
+                    <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={decrement}>
+                    <Text style={styles.buttonText}>-</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={reset}>
+                    <Text style={styles.buttonText}>Reset</Text>
+                </TouchableOpacity>
             </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     card: {
@@ -43,26 +37,25 @@ const styles = StyleSheet.create({
     },
     buttons: {
         flexDirection: 'row',
-        // borderWidth:1 ,   
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
+        marginTop: 20,
     },
-    IncrementCard: {
-        marginLeft: 140,
-        // borderWidth:3,
-
+    button: {
+        backgroundColor: 'lightblue',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
     },
-    DiscrementCard: {
-        // marginLeft:1,
-        // borderWidth:3,
-
+    buttonText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'black',
     },
     text: {
         color: 'black',
         fontSize: 40,
-        // borderWidth:1 , 
-        // alignSelf:'center'
+        alignSelf: 'center',
     },
-})
-
+});
 
 export default Counter;

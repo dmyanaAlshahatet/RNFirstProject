@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import { View,Text,StatusBar,Image,TouchableOpacity,TextInput, Animated,} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StatusBar, Image, TouchableOpacity, TextInput, Animated, StyleSheet } from 'react-native';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 
-const Status = ({route, navigation}) => {
-  const {name} = route.params;
-  const {image} = route.params;
+const Status = ({ route, navigation }) => {
+  const { name } = route.params;
+  const { image } = route.params;
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -28,112 +28,123 @@ const Status = ({route, navigation}) => {
   });
 
   return (
-    <View
-      style={{
-        backgroundColor: 'black',
-        height: '100%',
-        position: 'relative',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+    <View style={styles.container}>
       <StatusBar backgroundColor="black" barStyle="light-content" />
-      <View
-        style={{
-          height: 3,
-          width: '95%',
-          borderWidth: 1,
-          backgroundColor: 'gray',
-          position: 'absolute',
-          top: 18,
-        }}>
-        <Animated.View
-          style={{
-            height: '100%',
-            backgroundColor: 'white',
-            width: progressAnimation,
-          }}></Animated.View>
+      <View style={styles.progressBar}>
+        <Animated.View style={[styles.progressBarFill, { width: progressAnimation }]} />
       </View>
-      <View
-        style={{
-          padding: 15,
-          flexDirection: 'row',
-          alignItems: 'center',
-          position: 'absolute',
-          top: 12,
-          left: 0,
-          width: '90%',
-        }}>
-        <View
-          style={{
-            borderRadius: 100,
-            width: 30,
-            height: 30,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Image
-            source={image}
-            style={{
-              borderRadius: 100,
-              backgroundColor: 'orange',
-              resizeMode: 'cover',
-              width: '92%',
-              height: '92%',
-            }}
-          />
+      <View style={styles.header}>
+        <View style={styles.avatarContainer}>
+          <Image source={image} style={styles.avatar} />
         </View>
-        <View
-          style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            width: '100%',
-          }}>
-          <Text style={{color: 'white', fontSize: 15, paddingLeft: 10}}>
-            {name}
-          </Text>
+        <View style={styles.headerText}>
+          <Text style={styles.headerName}>{name}</Text>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionic
-              name="close"
-              style={{fontSize: 20, color: 'white', opacity: 0.6}}
-            />
+            <Ionic name="close" style={styles.closeIcon} />
           </TouchableOpacity>
         </View>
       </View>
-      <Image
-        source={image}
-        style={{position: 'absolute', width: '100%', height: 600}}
-      />
-      <View
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-around',
-          marginVertical: 10,
-          width: '100%',
-        }}>
+      <Image source={image} style={styles.image} />
+      <View style={styles.inputContainer}>
         <TextInput
-          placeholder="send message"
+          placeholder="Send message"
           placeholderTextColor="white"
-          style={{
-            borderColor: 'white',
-            borderRadius: 25,
-            width: '85%',
-            height: 50,
-            paddingLeft: 20,
-            borderWidth: 1,
-            fontSize: 20,
-            color: 'white',
-          }}
+          style={styles.input}
         />
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Feather name="navigation" style={{fontSize: 30, color: 'white'}} />
+          <Feather name="navigation" style={styles.sendIcon} />
         </TouchableOpacity>
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'black',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  progressBar: {
+    height: 3,
+    width: '95%',
+    borderWidth: 1,
+    backgroundColor: 'gray',
+    position: 'absolute',
+    top: 18,
+  },
+  progressBarFill: {
+    height: '100%',
+    backgroundColor: 'white',
+  },
+  header: {
+    padding: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 12,
+    left: 0,
+    width: '90%',
+  },
+  avatarContainer: {
+    borderRadius: 100,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  avatar: {
+    borderRadius: 100,
+    backgroundColor: 'orange',
+    resizeMode: 'cover',
+    width: '92%',
+    height: '92%',
+  },
+  headerText: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    width: '100%',
+  },
+  headerName: {
+    color: 'white',
+    fontSize: 15,
+    paddingLeft: 10,
+  },
+  closeIcon: {
+    fontSize: 20,
+    color: 'white',
+    opacity: 0.6,
+  },
+  image: {
+    position: 'absolute',
+    width: '100%',
+    height: 600,
+  },
+  inputContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginVertical: 10,
+    width: '100%',
+  },
+  input: {
+    borderColor: 'white',
+    borderRadius: 25,
+    width: '85%',
+    height: 50,
+    paddingLeft: 20,
+    borderWidth: 1,
+    fontSize: 20,
+    color: 'white',
+  },
+  sendIcon: {
+    fontSize: 30,
+    color: 'white',
+  },
+});
 
 export default Status;

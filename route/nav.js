@@ -14,7 +14,6 @@ import SearchBar1 from "../src/components/SearchBar1";
 import Splash from "../src/components/screens/Splash";
 import SwipeBox from "../src/components/SwipeBox";
 import InstagramHome from "../src/components/InstagramHome";
-import AnimTap2 from "./AnimTab2";
 import Status from "../src/components/Status";
 import SearchContent from "../src/components/SearchContent";
 import Search from "../src/components/screens/Search";
@@ -22,6 +21,7 @@ import SearchBar from "../src/components/SearchBar1";
 import SearchBox from "../src/components/SearchBox";
 import Stories from "../src/components/Stories";
 import HomePage from "../src/components/screens/HomePage";
+import Reels from "../src/components/screens/Reels";
 
 
 const MainNavigation = (props) => {
@@ -49,12 +49,11 @@ const MainNavigation = (props) => {
                 <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.Status} component={Status} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.HomePage} component={HomePage} options={{ headerShown: false }} />
-                {/* <Stack.Screen name={ScreenNames.AnimTap2} component={AnimTap2} options={{ headerShown: false }} /> */}
-
+                {/* <Stack.Screen name={ScreenNames.Reels} component={Reels} options={{ headerShown: false }} /> */}
             </Stack.Navigator>
-            <TouchableOpacity style={styles.iconContainer} onPress={toggleTheme}>
+            {/* <TouchableOpacity style={styles.iconContainer} onPress={toggleTheme}>
                 <Image source={theme === 'light' ? require('../src/components/images/sun.png') : require('../src/components/images/moon.png')} style={styles.iconImage} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </NavigationContainer>
     )
 }

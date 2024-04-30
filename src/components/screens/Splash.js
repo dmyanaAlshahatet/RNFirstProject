@@ -76,8 +76,6 @@ const styles = StyleSheet.create({
   line: {
     marginTop: 70,
      height: 0.6,
-    //  borderRadius:10,
-    //  borderWidth: 1,
      width:'35%',
     backgroundColor: 'pink',
     justifyContent: 'center',

@@ -18,8 +18,13 @@ import Status from '../src/components/Status';
 import SearchContent from '../src/components/SearchContent';
 import Search from '../src/components/screens/Search';
 import SearchBox from '../src/components/SearchBox';
-import Home from '../src/components/screens/HomePage';
+import Home from '../src/components/screens/Home';
 import HomePage from '../src/components/screens/HomePage';
+import Reels from '../src/components/screens/Reels';
+import Counter from '../src/components/Counter';
+import Profile from '../src/components/screens/Profile';
+// import Fingerprint from '../src/components/Fingerprint';
+
 // import { MaterialBottomTabView } from '@react-navigation/material-bottom-tabs';
 
 
@@ -44,28 +49,32 @@ const BottomTab = () => {
             iconName = focused ? 'search' : 'search-outline';
             size = focused ? size + 6 : size + 5;
           } else if (route.name === 'reels') {
-            iconName = focused ? 'search' : 'search-outline';
+            iconName = focused ? 'play-circle' : 'play-circle';
             size = focused ? size + 6 : size + 5;
           }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarIconStyle: {
+          // borderRadius: 50,
           backgroundColor: '#ffc125',
           height: 80,
           shadowColor: '#000',
           // ...styles.shadow
         },
-        tabBarActiveTintColor: 'white',
-        tabBarInactiveTintColor: 'white',
+        tabBarActiveTintColor: '#000',
+        tabBarActiveBackgroundColor:'#f0f8ff',
+        tabBarInactiveTintColor: '#000',
         tabBarShowLabel: false,
+        borderRadius: 50,
         tabBarStyle: {
-          backgroundColor: '#000',
+          // backgroundColor: 'white',
           marginBottom: 15,
           marginHorizontal: 10,
           position: 'absolute',
           borderRadius: 15,
-          borderTopColor: '#000',
+          overflow: 'hidden', 
+          borderTopColor: 'white',
           elevation: 10,
           shadowColor: '#000',
 
@@ -73,10 +82,10 @@ const BottomTab = () => {
       })}
     >
 
-      <Tab.Screen name="Home" component={HomePage} options={{}}/>
+      <Tab.Screen name="Home" component={HomePage} options={{ headerShown: false}}/>
       <Tab.Screen name="Login" component={ProfileView} options={{ headerShown: false }} />
       <Tab.Screen name="search" component={Search} options={{ headerShown: false }} />
-      {/* <Tab.Screen name="search" component={SearchUsers} options={{ headerShown: false }} /> */}
+      <Tab.Screen name="Reels" component={Profile} options={{ headerShown: false }} />
       <Tab.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{
         headerShown: false, tabBarIcon: ({ focused }) => (
           <Image style={styles.BottomTab}

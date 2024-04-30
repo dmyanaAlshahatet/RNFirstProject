@@ -1,4 +1,5 @@
 import Theme from "../src/components/Theme";
+import Reels from "../src/components/screens/Reels";
 
 const ScreenNames = {
     Splash : "Splash",
@@ -22,5 +23,6 @@ const ScreenNames = {
     Stories : "Stories",
     Post : "Post",
     HomePage : "HomePage",
+    Reels : "Reels"
 }
 export default ScreenNames;

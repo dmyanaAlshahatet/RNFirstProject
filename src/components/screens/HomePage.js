@@ -15,9 +15,9 @@ const HomePage = () => {
         animated={true}
       />
       <View style={styles.header}>
-        <FontAwesome name="plus-square-o" style={styles.icon} />
+        {/* <FontAwesome name="plus-square-o" style={styles.icon} /> */}
         <Text style={styles.title}>Instagram</Text>
-        <Feather name="navigation" style={styles.icon} />
+        {/* <Feather name="navigation" style={styles.icon} /> */}
       </View>
 
       <ScrollView>
@@ -44,6 +44,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 15,
     alignItems: 'center',
+    justifyContent: 'center',
+    // alignItems: 'center',
   },
   icon: {
     fontSize: 24,

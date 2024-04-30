@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
-import RNFirstProjectContext from '../../Store/RNFirstProjectContext';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-// import shadow from 'react-na/tive-paper/lib/typescript/src/styles/shadow';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, useColorScheme, Button } from 'react-native';
+import FingerprintScanner from 'react-native-fingerprint-scanner';
+import Ionic from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const ProfileView = (props) => {
-
   const colorScheme = useColorScheme();
 
   const profileData = {
@@ -19,6 +17,34 @@ const ProfileView = (props) => {
   const [email, setEmail] = useState(profileData.email);
   const [bio, setBio] = useState(profileData.bio);
   const [profile, setProfile] = useState(profileData.profile);
+  const [isSensorAvailable, setIsSensorAvailable] = useState(false);
+
+  useEffect(() => {
+    checkFingerprintSensor();
+  }, []);
+
+  const checkFingerprintSensor = async () => {
+    try {
+      const isAvailable = await FingerprintScanner.isSensorAvailable();
+      setIsSensorAvailable(isAvailable);
+    } catch (error) {
+      console.error('Error checking fingerprint sensor:', error);
+    }
+  };
+
+  const scanFingerprint = async () => {
+    try {
+      const result = await FingerprintScanner.authenticate({
+        description: 'Scan your fingerprint to proceed',
+      });
+      console.log('Fingerprint authentication result:', result);
+      // Handle authentication success
+    } catch (error) {
+      console.error('Fingerprint authentication error:', error);
+      // Handle authentication failure
+    }
+  };
+
 
   const handleSubmit = () => {
     props.navigation.navigate('Instagram')
@@ -28,67 +54,29 @@ const ProfileView = (props) => {
     props.navigation.goBack()
   }
 
-  // const generateBoxShadowStyle = (
-  //   xOffset,
-  //   yOffset,
-  //   shadowColorIos,
-  //   shadowOpacity,
-  //   shadowRadius,
-  //   elevation,
-  //   shadowColorAndroid,
-  // ) => {
-  //   if (Platform.OS === 'ios') {
-  //     styles.boxShadow = {
-  //       shadowColor: shadowColorIos,
-  //       shadowOffset: {width: xOffset, height: yOffset},
-  //       shadowOpacity,
-  //       shadowRadius,
-  //     };
-  //   } else if (Platform.OS === 'android') {
-  //     styles.boxShadow = {
-  //       elevation,
-  //       shadowColor: shadowColorAndroid,
-  //     };
-  //   }
-  // };
-  /*********************************Test***************************************/
-
   return (
     <View style={styles.container}>
-
       <View style={styles.profileContainer}>
-        <Image style={styles.profile}
-          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9bcU8_C37sTTeYcd3bPPvEyeM82PA1WRDg&usqp=CAU' }}
-        />
-        <TouchableOpacity style={styles.changeProfileButton} onPress={() => {/* open image picker */ }}>
+        <Image style={styles.profile} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9bcU8_C37sTTeYcd3bPPvEyeM82PA1WRDg&usqp=CAU' }} />
+        <TouchableOpacity style={styles.changeProfileButton} onPress={() => { }}>
           <Text style={styles.changeProfileButtonText}>Change profile</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.form}>
         <Text style={styles.label}>Name</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Name"
-          value={name}
-          onChangeText={setName}
-        />
+        <TextInput style={styles.input} placeholder="Enter Name" value={name} onChangeText={setName} />
         <Text style={styles.label}>Email</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Email"
-          value={email}
-          onChangeText={setEmail}
-        />
+        <TextInput style={styles.input} placeholder="Enter Email" value={email} onChangeText={setEmail} />
         <Text style={styles.label}>Bio</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Bio"
-          value={bio}
-          onChangeText={setBio}
-        />
+        <TextInput style={styles.input} placeholder="Enter Bio" value={bio} onChangeText={setBio} />
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
+        {isSensorAvailable ? (
+          <Button title="Scan Fingerprint" onPress={scanFingerprint} />
+        ) : (
+          <Text>Fingerprint sensor not available</Text>
+        )}
       </View>
       <Text style={styles.Or}>Or</Text>
       <View style={styles.loginWithFacebook}>
@@ -101,10 +89,13 @@ const ProfileView = (props) => {
           Login with Facebook
         </AntDesign.Button>
       </View>
+      {/* Bio Icon */}
+      <View style={styles.bioIconContainer}>
+        {/* <Ionic name="finger-print-outline" size={30} color="#2f4f4f" /> */}
+      </View>
     </View>
   );
 };
-// generateBoxShadowStyle(-2, 4, '#171717', 0.2, 3, 4, '#171717');/*********new change**********/
 
 const styles = StyleSheet.create({
   container: {
@@ -115,25 +106,21 @@ const styles = StyleSheet.create({
   },
   form: {
     width: '80%',
-    // borderWidth:1,
     elevation: 34,
     marginTop: 15,
     backgroundColor: 'white',
     borderRadius: 10,
     padding: 20,
     shadowColor: 'blue',
-    // shadowOffset:{
-    // width:50,
-    // height:50,
-    // },
-    // shadowOpacity:0.25,
-    // shadowRadius:3.84,
   },
   label: {
     marginTop: 20,
+    fontWeight:'bold',
   },
   input: {
     borderColor: 'black',
+    // fontStyle:'italic',
+    fontFamily: 'serif',
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
@@ -145,18 +132,11 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 6,
     paddingHorizontal: 20,
-    // textAlign:'center',
-  },
-  loginWithFacebook: {
-    // borderWidth:1,
-    borderRadius: 18,
   },
   Or: {
     fontSize: 15,
     color: 'black',
     fontWeight: 'bold',
-    // borderWidth:1,
-    // marginTop:20,
     margin: 10,
   },
   buttonText: {
@@ -175,13 +155,17 @@ const styles = StyleSheet.create({
   },
   changeProfileButton: {
     marginTop: 10,
-    // borderWidth:1,
   },
   changeProfileButtonText: {
     color: 'black',
     fontSize: 18,
   },
+  loginWithFacebook: {
+    borderRadius: 18,
+  },
+  bioIconContainer: {
+    marginTop: 20,
+  },
 });
 
 export default ProfileView;
-

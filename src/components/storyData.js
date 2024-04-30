@@ -12,7 +12,7 @@ const storyData = [
     {
         id: 0,
         name: 'Tom',
-        image: require('../components/images/post8.jpg'),
+        image: require('../components/images/boss baby2.jpeg'),
     },
     {
         id: 0,

@@ -1,13 +1,13 @@
-import "react-native-gesture-handler"; // must be the First line of the project
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme } from 'react-native';
-import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const TasksToDo = () => {
   const [task, setTask] = useState('');
-  const [tasks, setTasks] = useState(['']);
+  const [tasks, setTasks] = useState([]);
 
   const addTask = () => {
+    if (task.trim() === '') return; // Prevent adding empty tasks
     setTasks([...tasks, { task, key: tasks.length.toString() }]);
     setTask('');
   };
@@ -20,36 +20,31 @@ const TasksToDo = () => {
 
   return (
     // <GestureHandlerRootView>
-    // {/* <Swipeable> */}
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={task}
-        onChangeText={setTask}
-        placeholder="Add a task"
-      />
-      <TouchableOpacity style={styles.button} onPress={addTask}>
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
-      <FlatList
-        style={styles.list}
-        data={tasks}
-        renderItem={({ item }) => (
-          <View style={styles.listItem}>
-            <Text>{item.task}</Text>
-            <TouchableOpacity onPress={() => removeTask(item.key)}>
-              <Text>X</Text>
-            </TouchableOpacity>
-            {/* <Text style={{ color: colorScheme === 'dark' ? 'white' : 'white', }}>
-              Current Color Scheme: {colorScheme}
-            </Text> */}
-
-          </View>
-        )}
-      />
-      <Text>Current Color Scheme: {colorScheme}</Text>
-    </View>
-    // {/* </Swipeable> */}
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          value={task}
+          onChangeText={setTask}
+          placeholder="Add a task"
+        />
+        <TouchableOpacity style={styles.button} onPress={addTask}>
+          <Text style={styles.buttonText}>Add</Text>
+        </TouchableOpacity>
+        <FlatList
+          style={styles.list}
+          data={tasks}
+          renderItem={({ item }) => (
+            <View style={styles.listItem}>
+              <Text>{item.task}</Text>
+              <TouchableOpacity onPress={() => removeTask(item.key)}>
+                <Text>X</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+          keyExtractor={(item) => item.key}
+        />
+        <Text>Current Color Scheme: {colorScheme}</Text>
+      </View>
     // </GestureHandlerRootView>
   );
 };

@@ -1,8 +1,7 @@
 import React from 'react';
-import 'react-native-gesture-handler'
-import { View, Text, StyleSheet, Dimensions, Animated, TouchableOpacity, } from 'react-native';
-import{Swipeable,GestureHandlerRootView}  from 'react-native-gesture-handler/Swipeable';
-
+import 'react-native-gesture-handler';
+import { View, StyleSheet, Dimensions, Animated, TouchableOpacity } from 'react-native';
+// import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -14,30 +13,26 @@ const ItemBox = (props) => {
       extrapolate: 'clamp',
     });
     return (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <BottomSheetModalProvider>
-          <TouchableOpacity onPress={props.handleDelete} activeOpacity={0.6}>
-            <View style={styles.deleteBox}>
-              <Animated.Text style={{ transform: [{ scale: scale }] }}>
-                Delete
-              </Animated.Text>
-              {/* <ExampleWithHoc /> */}
-            </View>
-          </TouchableOpacity>
-        </BottomSheetModalProvider>
-      </GestureHandlerRootView>
+      // <GestureHandlerRootView style={{ flex: 1 }}>
+        <TouchableOpacity onPress={props.handleDelete} activeOpacity={0.6}>
+          <View style={styles.deleteBox}>
+            <Animated.Text style={{ transform: [{ scale: scale }] }}>
+              Delete
+            </Animated.Text>
+          </View>
+        </TouchableOpacity>
+      // </GestureHandlerRootView>
     );
   };
+
   return (
     <Swipeable renderLeftActions={leftSwipe}>
       <View style={styles.container}>
-        {/* <Text>My name is {props.data.name}.</Text> */}
+        {/* Your item content goes here */}
       </View>
     </Swipeable>
   );
 };
-
-export default ItemBox;
 
 const styles = StyleSheet.create({
   container: {
@@ -55,3 +50,5 @@ const styles = StyleSheet.create({
     height: 80,
   },
 });
+
+export default ItemBox;
