@@ -11,7 +11,7 @@ const ScreenNames = {
     Instagram :'Instagram',
     searchBar :'SearchBar1',
     Login : 'ProfileView',
-    TasksToDo : 'TasksList',
+    TasksList : 'TasksList',
     SearchUsers : 'SearchUsers',
     InstagramHome : 'InstagramHome',
     Theme : 'Theme',

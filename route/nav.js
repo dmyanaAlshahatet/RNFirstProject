@@ -45,11 +45,10 @@ const MainNavigation = (props) => {
                 <Stack.Screen name={ScreenNames.InstagramHome} component={InstagramHome} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.Home} component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.SearchUsers} component={SearchUsers} options={{ headerShown: false }} />
-                <Stack.Screen name={ScreenNames.TasksToDo} component={TasksList} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.BottomTab} component={BottomTab} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.Status} component={Status} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.HomePage} component={HomePage} options={{ headerShown: false }} />
-                {/* <Stack.Screen name={ScreenNames.Reels} component={Reels} options={{ headerShown: false }} /> */}
+                <Stack.Screen name={ScreenNames.TasksList} component={TasksList} options={{ headerShown: false }} />
             </Stack.Navigator>
             {/* <TouchableOpacity style={styles.iconContainer} onPress={toggleTheme}>
                 <Image source={theme === 'light' ? require('../src/components/images/sun.png') : require('../src/components/images/moon.png')} style={styles.iconImage} />

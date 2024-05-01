@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-const TasksToDo = () => {
+const TasksList = () => {
   const [task, setTask] = useState('');
   const [tasks, setTasks] = useState([]);
 
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TasksToDo;
+export default TasksList;
