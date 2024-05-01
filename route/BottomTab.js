@@ -49,7 +49,7 @@ const BottomTab = () => {
             iconName = focused ? 'search' : 'search-outline';
             size = focused ? size + 6 : size + 5;
           } else if (route.name === 'reels') {
-            iconName = focused ? 'play-circle' : 'play-circle';
+            iconName = focused ? 'play-circle' : 'play-circle-outline';
             size = focused ? size + 6 : size + 5;
           }
           // You can return any component that you like here!
@@ -83,13 +83,12 @@ const BottomTab = () => {
     >
 
       <Tab.Screen name="Home" component={HomePage} options={{ headerShown: false}}/>
-      {/* <Tab.Screen name="Login" component={Login} options={{ headerShown: false }} /> */}
       <Tab.Screen name="search" component={Search} options={{ headerShown: false }} />
-      {/* <Tab.Screen name="Reels" component={Profile} options={{ headerShown: false }} /> */}
+      <Tab.Screen name="reels" component={Reels} options={{ headerShown: false }} />
       <Tab.Screen name={ScreenNames.Instagram} component={Profile} options={{
         headerShown: false, tabBarIcon: ({ focused }) => (
           <Image style={styles.BottomTab}
-            source={focused ? require('../src/components/images/baby-boss.png') : require('../src/components/images/Boss_Baby.jpg')}
+            source={focused ? require('../src/components/images/angryBoss.jpg') : require('../src/components/images/Boss_Baby.jpg')}
           />
         ),
       }} />

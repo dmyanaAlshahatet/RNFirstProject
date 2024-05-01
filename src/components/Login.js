@@ -56,6 +56,9 @@ const Login = (props) => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.arrow} onPress={goHome} >
+        <AntDesign name="arrowleft" size={30} color="black" />
+      </TouchableOpacity>
       <View style={styles.profileContainer}>
         <Image style={styles.profile} source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9bcU8_C37sTTeYcd3bPPvEyeM82PA1WRDg&usqp=CAU' }} />
         <TouchableOpacity style={styles.changeProfileButton} onPress={() => { }}>
@@ -115,7 +118,7 @@ const styles = StyleSheet.create({
   },
   label: {
     marginTop: 20,
-    fontWeight:'bold',
+    fontWeight: 'bold',
   },
   input: {
     borderColor: 'black',
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   profileContainer: {
-    marginTop: 20,
+    // marginTop: 20,
     alignItems: 'center',
   },
   profile: {
@@ -165,6 +168,11 @@ const styles = StyleSheet.create({
   },
   bioIconContainer: {
     marginTop: 20,
+  },
+  arrow: {
+    marginRight: 350,
+    // marginBottom:70
+    // padding: 10,
   },
 });
 

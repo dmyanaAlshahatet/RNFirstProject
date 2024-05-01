@@ -2,7 +2,7 @@ const postInfo = [
   {
     postTitle: 'mr shermon',
     postPersonImage: require('../components/images/baby-boss.png'),
-    postImage: require('../components/images/post1.jpg'),
+    postImage: require('../components/images/cartoon.jpg'),
     likes: 765,
     isLiked: false,
   },

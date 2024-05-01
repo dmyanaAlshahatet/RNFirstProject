@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import BottomTabProfile from './BottomTabProfile';
+import BottomTabProfile from '../../route/BottomTabProfile';
 
 const InstagramInterface = (props) => {
   const [images, setImages] = useState([

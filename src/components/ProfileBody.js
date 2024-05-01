@@ -11,6 +11,12 @@ export const ProfileBody = ({
     followers,
     following,
 }) => {
+
+    const navigation = useNavigation();
+
+    const openDrawer = () => {
+        navigation.openDrawer();
+    };
     return (
         <View>
             {accountName && (
@@ -21,7 +27,9 @@ export const ProfileBody = ({
                     </View>
                     <View style={styles.actions}>
                         <Feather name="plus-square" style={styles.icon} />
+                        <TouchableOpacity onPress={openDrawer} style={styles.actions}>
                         <Feather name="menu" style={styles.icon} />
+                    </TouchableOpacity>
                     </View>
                 </View>
             )}
@@ -78,7 +86,7 @@ export const ProfileButtons = ({ id, name, accountName, profileImage }) => {
                         <Text>Message</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.dropdownButton}>
-                        <Feather name="chevron-down" style={styles.icon} />
+                        <Feather name="chevron-down" />
                     </TouchableOpacity>
                 </View>
             )}
@@ -96,6 +104,9 @@ const styles = StyleSheet.create({
     },
     accountName: {
         fontSize: 20,
+        fontStyle: 'italic',
+        fontFamily: 'serif',
+        fontWeight: 'bold',
         color: 'black',
     },
     accountInfo: {
@@ -108,9 +119,8 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 20,
-        color: 'black',
+        color: '#000',
         paddingHorizontal: 5,
-        opacity: 0.5,
     },
     statsContainer: {
         flexDirection: 'row',

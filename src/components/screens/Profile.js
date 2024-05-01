@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { ProfileBody, ProfileButtons } from '../ProfileBody';
 import Entypo from 'react-native-vector-icons/Entypo';
-import BottomTabProfile from '../BottomTabProfile';
+import BottomTabProfile from '../../../route/BottomTabProfile';
 
 const Profile = () => {
   let circles = [];
@@ -27,8 +27,8 @@ const Profile = () => {
       <View style={styles.profileInfo}>
         <ProfileBody
           name="Mr Peobody"
-          accountName="mr_peobody"
-          profileImage={require('../images/baby-boss.png')}
+          accountName="mr_ peobody"
+          profileImage={require('../images/angryBoss.jpg')}
           followers="3.6M"
           following="35"
           post="458"
@@ -36,7 +36,7 @@ const Profile = () => {
         <ProfileButtons
           id={0}
           name="Mr Peobody"
-          accountName="mr_peobody"
+          accountName="mr_ peobody"
           profileImage={require('../images/Boss_Baby.jpg')}
         />
       </View>
@@ -61,8 +61,6 @@ const styles = StyleSheet.create({
   },
   profileInfo: {
     padding: 10,
-    // borderWidth: 2,
-    // borderColor: '#3592bd',
   },
   circleContainer: {
     marginHorizontal: 5,
@@ -95,6 +93,10 @@ const styles = StyleSheet.create({
     padding: 10,
     letterSpacing: 1,
     fontSize: 14,
+    // fontFamily: 'serif',
+    fontFamily: 'Lobster-Regular',
+    fontWeight: 'bold',
+    color: 'black',
   },
   scrollView: {
     paddingVertical: 5,
