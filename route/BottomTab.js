@@ -1,7 +1,7 @@
 import { StyleSheet, Image, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
-import ProfileView from '../src/components/ProfileView';
+import Login from '../src/components/Login';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import InstagramInterface from '../src/components/InstagramInterface';
@@ -11,7 +11,7 @@ import SearchBar from '../src/components/SearchBar1';
 import TasksList from "../src/components/TasksList";
 import SwipeBox from "../src/components/SwipeBox";
 import SearchUsers from "../src/components/SearchUsers";
-import InstagramHome from "../src/components/InstagramHome";
+import InstagramHome from "../src/components/Example";
 import ShoppingCart from '../src/components/ShoppingCart';
 import ThemedComponent from '../src/context/ThemeContext';
 import Status from '../src/components/Status';
@@ -83,10 +83,10 @@ const BottomTab = () => {
     >
 
       <Tab.Screen name="Home" component={HomePage} options={{ headerShown: false}}/>
-      <Tab.Screen name="Login" component={ProfileView} options={{ headerShown: false }} />
+      {/* <Tab.Screen name="Login" component={Login} options={{ headerShown: false }} /> */}
       <Tab.Screen name="search" component={Search} options={{ headerShown: false }} />
-      <Tab.Screen name="Reels" component={Profile} options={{ headerShown: false }} />
-      <Tab.Screen name={ScreenNames.Instagram} component={InstagramInterface} options={{
+      {/* <Tab.Screen name="Reels" component={Profile} options={{ headerShown: false }} /> */}
+      <Tab.Screen name={ScreenNames.Instagram} component={Profile} options={{
         headerShown: false, tabBarIcon: ({ focused }) => (
           <Image style={styles.BottomTab}
             source={focused ? require('../src/components/images/baby-boss.png') : require('../src/components/images/Boss_Baby.jpg')}

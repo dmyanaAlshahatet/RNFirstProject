@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useColorScheme, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Text } from "react-native";
 import Home from "../src/components/screens/Home";
-import ProfileView from "../src/components/ProfileView";
+import ProfileView from "../src/components/Login";
 import TasksList from "../src/components/TasksList";
 import InstagramInterface from "../src/components/InstagramInterface";
 import SearchUsers from "../src/components/SearchUsers";
@@ -13,7 +13,7 @@ import ScreenNames from "./screenNames";
 import SearchBar1 from "../src/components/SearchBar1";
 import Splash from "../src/components/screens/Splash";
 import SwipeBox from "../src/components/SwipeBox";
-import InstagramHome from "../src/components/InstagramHome";
+import InstagramHome from "../src/components/Example";
 import Status from "../src/components/Status";
 import SearchContent from "../src/components/SearchContent";
 import Search from "../src/components/screens/Search";
@@ -22,6 +22,7 @@ import SearchBox from "../src/components/SearchBox";
 import Stories from "../src/components/Stories";
 import HomePage from "../src/components/screens/HomePage";
 import Reels from "../src/components/screens/Reels";
+import Login from "../src/components/Login";
 
 
 const MainNavigation = (props) => {
@@ -40,7 +41,7 @@ const MainNavigation = (props) => {
 
     return (
         <NavigationContainer theme={MyTheme}>
-            <Stack.Navigator initialRouteName="Login">
+            <Stack.Navigator initialRouteName="">
                 <Stack.Screen name={ScreenNames.Splash} component={Splash} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.InstagramHome} component={InstagramHome} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.Home} component={Home} options={{ headerShown: false }} />
@@ -49,6 +50,7 @@ const MainNavigation = (props) => {
                 <Stack.Screen name={ScreenNames.Status} component={Status} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.HomePage} component={HomePage} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.TasksList} component={TasksList} options={{ headerShown: false }} />
+                <Stack.Screen name={ScreenNames.Login} component={Login} options={{ headerShown: false }} />
             </Stack.Navigator>
             {/* <TouchableOpacity style={styles.iconContainer} onPress={toggleTheme}>
                 <Image source={theme === 'light' ? require('../src/components/images/sun.png') : require('../src/components/images/moon.png')} style={styles.iconImage} />

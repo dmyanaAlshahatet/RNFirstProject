@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StatusBar, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Stories from '../Stories';
 import Post from '../Post';
@@ -20,7 +20,7 @@ const HomePage = () => {
         <View style={styles.row}>
           <FontAwesome name="heart-o" style={styles.icon} />
           <TouchableOpacity onPress={toggleDropdown} style={styles.instagramContainer}> 
-          <AntDesign name={dropdownVisible ? 'up' : 'down'} style={styles.arrowIcon} />
+          <Feather name={dropdownVisible ? 'chevron-up' : 'chevron-down'} style={styles.arrowIcon} />
             <Text style={styles.title}>Instagram</Text>
            
           </TouchableOpacity>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   dropdownText: {
     fontSize: 16,
-    fontFamily: 'serif',
+    // fontFamily: 'serif',
     fontWeight: 'bold',
     color: 'black',
   },

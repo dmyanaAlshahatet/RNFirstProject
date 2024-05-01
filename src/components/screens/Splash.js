@@ -24,7 +24,6 @@ const SplashScreen = (props) => {
     <ImageBackground source={require('../images/logo.jpg')} 
     style={styles.imageSplash}
     imageStyle ={styles.imageStyle}>
-      {/* <Image style={styles.imageSplash} source={{ uri: 'https://i1.wp.com/somostechbros.com/wp-content/uploads/2021/03/Instagram-Live-Room-TechBros-1.jpg?fit=1920%2C1080' }} /> */}
       {/* <ActivityIndicator
         animating={animating}
         color='#483d8b'

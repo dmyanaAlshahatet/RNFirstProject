@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import Card from "./src/components/Card";
 import State from "./src/components/State";
 import Counter from "./src/components/Counter";
-import ProfileView from "./src/components/ProfileView";
+import ProfileView from "./src/components/Login";
 import MainNavigation from "./route/nav";
 import RNFirstProjectProvider from "./Store/RNFirstProjectProvider";
 import TasksList from "./src/components/TasksList";

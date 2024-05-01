@@ -4,7 +4,7 @@ import FingerprintScanner from 'react-native-fingerprint-scanner';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const ProfileView = (props) => {
+const Login = (props) => {
   const colorScheme = useColorScheme();
 
   const profileData = {
@@ -19,31 +19,31 @@ const ProfileView = (props) => {
   const [profile, setProfile] = useState(profileData.profile);
   const [isSensorAvailable, setIsSensorAvailable] = useState(false);
 
-  useEffect(() => {
-    checkFingerprintSensor();
-  }, []);
+  // useEffect(() => {
+  //   checkFingerprintSensor();
+  // }, []);
 
-  const checkFingerprintSensor = async () => {
-    try {
-      const isAvailable = await FingerprintScanner.isSensorAvailable();
-      setIsSensorAvailable(isAvailable);
-    } catch (error) {
-      console.error('Error checking fingerprint sensor:', error);
-    }
-  };
+  // const checkFingerprintSensor = async () => {
+  //   try {
+  //     const isAvailable = await FingerprintScanner.isSensorAvailable();
+  //     setIsSensorAvailable(isAvailable);
+  //   } catch (error) {
+  //     console.error('Error checking fingerprint sensor:', error);
+  //   }
+  // };
 
-  const scanFingerprint = async () => {
-    try {
-      const result = await FingerprintScanner.authenticate({
-        description: 'Scan your fingerprint to proceed',
-      });
-      console.log('Fingerprint authentication result:', result);
-      // Handle authentication success
-    } catch (error) {
-      console.error('Fingerprint authentication error:', error);
-      // Handle authentication failure
-    }
-  };
+  // const scanFingerprint = async () => {
+  //   try {
+  //     const result = await FingerprintScanner.authenticate({
+  //       description: 'Scan your fingerprint to proceed',
+  //     });
+  //     console.log('Fingerprint authentication result:', result);
+  //     // Handle authentication success
+  //   } catch (error) {
+  //     console.error('Fingerprint authentication error:', error);
+  //     // Handle authentication failure
+  //   }
+  // };
 
 
   const handleSubmit = () => {
@@ -168,4 +168,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileView;
+export default Login;

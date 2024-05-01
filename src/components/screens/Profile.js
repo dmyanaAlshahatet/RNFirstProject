@@ -28,7 +28,7 @@ const Profile = () => {
         <ProfileBody
           name="Mr Peobody"
           accountName="mr_peobody"
-          profileImage={require('../images/Boss_Baby.jpg')}
+          profileImage={require('../images/baby-boss.png')}
           followers="3.6M"
           following="35"
           post="458"
@@ -49,7 +49,7 @@ const Profile = () => {
           {circles}
         </ScrollView>
       </View>
-      <BottomTabProfile />
+      {/* <BottomTabProfile /> */}
     </View>
   );
 };
@@ -61,6 +61,8 @@ const styles = StyleSheet.create({
   },
   profileInfo: {
     padding: 10,
+    // borderWidth: 2,
+    // borderColor: '#3592bd',
   },
   circleContainer: {
     marginHorizontal: 5,

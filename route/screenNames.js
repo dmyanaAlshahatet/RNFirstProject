@@ -23,6 +23,7 @@ const ScreenNames = {
     Stories : "Stories",
     Post : "Post",
     HomePage : "HomePage",
-    Reels : "Reels"
+    Reels : "Reels",
+    Login: "Login",
 }
 export default ScreenNames;

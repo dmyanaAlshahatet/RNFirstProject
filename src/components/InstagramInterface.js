@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import BottomTabProfile from './BottomTabProfile';
 
 const InstagramInterface = (props) => {
   const [images, setImages] = useState([
@@ -18,7 +19,7 @@ const InstagramInterface = (props) => {
   const [followerCount, setFollowerCount] = useState(1000);
 
   const addPost = () => {
-    props.navigation.navigate('TasksToDo');
+    props.navigation.navigate('TasksList');
   };
 
   const goHome = () => {
@@ -66,6 +67,7 @@ const InstagramInterface = (props) => {
           </View>
         ))}
       </ScrollView>
+      {/* <BottomTabProfile /> */}
     </View>
   );
 };
