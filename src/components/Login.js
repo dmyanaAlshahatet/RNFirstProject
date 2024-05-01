@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
   },
   input: {
     borderColor: 'black',
-    // fontStyle:'italic',
     fontFamily: 'serif',
     borderWidth: 1,
     borderRadius: 10,

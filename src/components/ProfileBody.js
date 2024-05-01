@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 
-export const ProfileBody = ({
+export const ProfileBody = ({props,
     name,
     accountName,
     profileImage,
@@ -11,6 +11,10 @@ export const ProfileBody = ({
     followers,
     following,
 }) => {
+
+    const addPost = () => {
+        navigation.navigate('TasksList');
+      };
 
     const navigation = useNavigation();
 
@@ -26,7 +30,7 @@ export const ProfileBody = ({
                         <Feather name="chevron-down" style={styles.icon} />
                     </View>
                     <View style={styles.actions}>
-                        <Feather name="plus-square" style={styles.icon} />
+                        <Feather name="plus-square"  onPress={addPost} style={styles.icon} />
                         <TouchableOpacity onPress={openDrawer} style={styles.actions}>
                         <Feather name="menu" style={styles.icon} />
                     </TouchableOpacity>

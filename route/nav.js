@@ -23,6 +23,7 @@ import Stories from "../src/components/Stories";
 import HomePage from "../src/components/screens/HomePage";
 import Reels from "../src/components/screens/Reels";
 import Login from "../src/components/Login";
+import Drawer1 from "./Drawer1";
 
 
 const MainNavigation = (props) => {
@@ -51,6 +52,7 @@ const MainNavigation = (props) => {
                 <Stack.Screen name={ScreenNames.HomePage} component={HomePage} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.TasksList} component={TasksList} options={{ headerShown: false }} />
                 <Stack.Screen name={ScreenNames.Login} component={Login} options={{ headerShown: false }} />
+                <Stack.Screen name={ScreenNames.Drawer1} component={Drawer1} options={{ headerShown: false }} />
             </Stack.Navigator>
             {/* <TouchableOpacity style={styles.iconContainer} onPress={toggleTheme}>
                 <Image source={theme === 'light' ? require('../src/components/images/sun.png') : require('../src/components/images/moon.png')} style={styles.iconImage} />

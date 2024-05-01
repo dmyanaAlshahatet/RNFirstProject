@@ -25,5 +25,6 @@ const ScreenNames = {
     HomePage : "HomePage",
     Reels : "Reels",
     Login: "Login",
+    Drawer1 : "Drawer1",
 }
 export default ScreenNames;
