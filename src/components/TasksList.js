@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -9,23 +8,34 @@ const TasksList = () => {
   const [tasks, setTasks] = useState([]);
   const navigation = useNavigation();
 
+  // Function to add a task
   const addTask = () => {
     if (task.trim() === '') return; // Prevent adding empty tasks
     setTasks([...tasks, { task, key: tasks.length.toString() }]);
     setTask('');
   };
 
+  // Function to remove a task
   const removeTask = (key) => {
     setTasks(tasks.filter((t) => t.key !== key));
   };
 
+  // Get the color scheme
   const colorScheme = useColorScheme();
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Ionicons name="arrow-back" size={24} color="#4d5b74" />
-      </TouchableOpacity>
+      <View style={styles.header}>
+        {/* Back button */}
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Ionicons name="arrow-back" size={24} color="#4d5b74" />
+        </TouchableOpacity>
+
+        {/* Title */}
+        <Text style={styles.title}>What are today's tasks?</Text>
+      </View>
+
+      {/* Task input */}
       <TextInput
         style={styles.input}
         value={task}
@@ -33,9 +43,13 @@ const TasksList = () => {
         placeholder="Add a task for today..."
         placeholderTextColor="#aaa"
       />
+
+      {/* Add button */}
       <TouchableOpacity style={styles.button} onPress={addTask}>
         <Text style={styles.buttonText}>+</Text>
       </TouchableOpacity>
+
+      {/* Task list */}
       <FlatList
         style={styles.list}
         data={tasks}
@@ -49,6 +63,8 @@ const TasksList = () => {
         )}
         keyExtractor={(item) => item.key}
       />
+
+      {/* Current color scheme */}
       <Text style={styles.colorSchemeText}>Current Color Scheme: {colorScheme}</Text>
     </View>
   );
@@ -60,8 +76,19 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#f0f8ff',
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+    marginRight:50,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#4d5b74',
+  },
   backButton: {
-    position: 'relative',
     marginBottom: 5,
   },
   input: {

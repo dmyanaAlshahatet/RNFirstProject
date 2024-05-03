@@ -169,9 +169,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   arrow: {
+    position: 'absolute',
     marginRight: 350,
-    // marginBottom:70
-    // padding: 10,
+    top: 30, 
+    left: 20,
   },
 });
 
