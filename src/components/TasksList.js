@@ -43,7 +43,7 @@ const TasksList = () => {
           <View style={styles.listItem}>
             <Text style={styles.taskText}>{item.task}</Text>
             <TouchableOpacity onPress={() => removeTask(item.key)}>
-              <Text style={styles.deleteButton}>X</Text>
+              <Ionicons name="trash-outline" size={20} color="#999" />
             </TouchableOpacity>
           </View>
         )}
@@ -62,8 +62,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'relative',
-    marginBottom:5,
-    
+    marginBottom: 5,
   },
   input: {
     height: 40,
@@ -117,10 +116,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'serif',
     color: '#333',
-  },
-  deleteButton: {
-    fontSize: 20,
-    color: '#999',
   },
   colorSchemeText: {
     marginTop: 20,
