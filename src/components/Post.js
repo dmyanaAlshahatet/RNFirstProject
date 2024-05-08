@@ -7,6 +7,9 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import postInfo from './postInfo';
 
 const Post = () => {
+
+    const [showDropdown, setShowDropdown] = useState(false);
+
     return (
         <View>
             {postInfo.map((data, index) => {

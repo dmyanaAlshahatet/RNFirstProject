@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Modal from 'react-native-modal'; // استيراد مكتبة react-native-modal
 
 const TasksList = () => {
   const [task, setTask] = useState('');
   const [tasks, setTasks] = useState([]);
+  const [isModalVisible, setModalVisible] = useState(false); // حالة لتتبع إظهار أو إخفاء النافذة المتعددة
   const navigation = useNavigation();
 
   // Function to add a task
   const addTask = () => {
-    if (task.trim() === '') return; // Prevent adding empty tasks
+    if (task.trim() === '') {
+      setModalVisible(true); // إظهار النافذة المتعددة عند محاولة إضافة مهمة فارغة
+      return; // توقف عن إضافة المهمة إذا كانت فارغة
+    }
     setTasks([...tasks, { task, key: tasks.length.toString() }]);
     setTask('');
   };
@@ -63,6 +68,16 @@ const TasksList = () => {
         )}
         keyExtractor={(item) => item.key}
       />
+
+      {/* Modal */}
+      <Modal isVisible={isModalVisible} style={styles.modal}>
+        <View style={styles.modalContent}>
+          <Text style={styles.modalText}>You haven't added any tasks yet!</Text>
+          <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.modalButton}>
+            <Text style={styles.modalButtonText}>OK</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
 
       {/* Current color scheme */}
       <Text style={styles.colorSchemeText}>Current Color Scheme: {colorScheme}</Text>
@@ -149,6 +164,34 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'serif',
     color: '#666',
+  },
+  // Modal styles
+  modal: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    backgroundColor: '#f0f8ff',
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 20,
+    textAlign: 'center',
+    fontFamily: 'serif',
+  },
+  modalButton: {
+    backgroundColor: '#4d5b74',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+  },
+  modalButtonText: {
+    color: 'white',
+    fontSize: 16,
+    
   },
 });
 

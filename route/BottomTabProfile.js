@@ -48,37 +48,42 @@ const BottomTabView = () => {
   };
 
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarShowLabel: false,
-        tabBarIndicatorStyle: {
-          backgroundColor: 'black',
-          height: 1.5,
-        },
-        tabBarIcon: ({ focused, color }) => {
-          let iconName;
-          if (route.name === 'Posts') {
-            iconName = focused ? 'apps-sharp' : 'apps-sharp';
-            color = focused ? 'black' : 'gray';
-          } else if (route.name === 'Video') {
-            iconName = focused ? 'play-circle' : 'play-circle-outline';
-            color = focused ? 'black' : 'gray';
-          } else if (route.name === 'Tags') {
-            iconName = focused ? 'person' : 'person-outline';
-            color = focused ? 'black' : 'gray';
-          }
+    <View style={styles.container}>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarShowLabel: false,
+          tabBarIndicatorStyle: {
+            backgroundColor: 'black',
+            height: 1.5,
+          },
+          tabBarIcon: ({ focused, color }) => {
+            let iconName;
+            if (route.name === 'Posts') {
+              iconName = focused ? 'apps-sharp' : 'apps-sharp';
+              color = focused ? 'black' : 'gray';
+            } else if (route.name === 'Video') {
+              iconName = focused ? 'play-circle' : 'play-circle-outline';
+              color = focused ? 'black' : 'gray';
+            } else if (route.name === 'Tags') {
+              iconName = focused ? 'person' : 'person-outline';
+              color = focused ? 'black' : 'gray';
+            }
 
-          return <Ionic name={iconName} color={color} size={22} />;
-        },
-      })}>
-      <Tab.Screen name="Posts" component={Posts} />
-      <Tab.Screen name="Video" component={Video} />
-      <Tab.Screen name="Tags" component={Tags} />
-    </Tab.Navigator>
+            return <Ionic name={iconName} color={color} size={22} />;
+          },
+        })}>
+        <Tab.Screen name="Posts" component={Posts} />
+        <Tab.Screen name="Video" component={Video} />
+        <Tab.Screen name="Tags" component={Tags} />
+      </Tab.Navigator>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   squareContainer: {
     marginVertical: 0.5,
   },

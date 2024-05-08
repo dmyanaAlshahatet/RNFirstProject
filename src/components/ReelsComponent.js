@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
-import {videoData} from './Database';
 import SingleReel from './SingleReel';
+import { videoData } from './videoData';
+
 
 const ReelsComponent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StatusBar, Image, TouchableOpacity, TextInput, Animated, StyleSheet } from 'react-native';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Status = ({ route, navigation }) => {
   const { name } = route.params;
@@ -21,11 +22,16 @@ const Status = ({ route, navigation }) => {
   }, []);
 
   const [progress, setProgress] = useState(new Animated.Value(0));
+  const [heartPressed, setHeartPressed] = useState(false); // حالة لتتبع ما إذا تم الضغط على القلب أو لا
 
   const progressAnimation = progress.interpolate({
     inputRange: [0, 5],
     outputRange: ['0%', '100%'],
   });
+
+  const handleHeartPress = () => {
+    setHeartPressed(!heartPressed); // عند الضغط على القلب، غير حالته
+  };
 
   return (
     <View style={styles.container}>
@@ -51,8 +57,12 @@ const Status = ({ route, navigation }) => {
           placeholderTextColor="white"
           style={styles.input}
         />
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+
+        <TouchableOpacity style={styles.iconContainer}>
           <Feather name="navigation" style={styles.sendIcon} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleHeartPress} style={styles.iconContainer}>
+          <FontAwesome name={heartPressed ? "heart" : "heart-o"} style={[styles.sendIcon, { color: heartPressed ? 'red' : 'white' }]} />
         </TouchableOpacity>
       </View>
     </View>
@@ -134,16 +144,21 @@ const styles = StyleSheet.create({
   input: {
     borderColor: 'white',
     borderRadius: 25,
-    width: '85%',
+    width: '60%',
     height: 50,
     paddingLeft: 20,
     borderWidth: 1,
     fontSize: 20,
     color: 'white',
   },
+  iconContainer: {
+    // width: 50,
+    // alignItems: 'center',
+  },
   sendIcon: {
     fontSize: 30,
     color: 'white',
+    
   },
 });
 
