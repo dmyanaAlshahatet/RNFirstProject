@@ -19,33 +19,6 @@ const Login = (props) => {
   const [profile, setProfile] = useState(profileData.profile);
   const [isSensorAvailable, setIsSensorAvailable] = useState(false);
 
-  // useEffect(() => {
-  //   checkFingerprintSensor();
-  // }, []);
-
-  // const checkFingerprintSensor = async () => {
-  //   try {
-  //     const isAvailable = await FingerprintScanner.isSensorAvailable();
-  //     setIsSensorAvailable(isAvailable);
-  //   } catch (error) {
-  //     console.error('Error checking fingerprint sensor:', error);
-  //   }
-  // };
-
-  // const scanFingerprint = async () => {
-  //   try {
-  //     const result = await FingerprintScanner.authenticate({
-  //       description: 'Scan your fingerprint to proceed',
-  //     });
-  //     console.log('Fingerprint authentication result:', result);
-  //     // Handle authentication success
-  //   } catch (error) {
-  //     console.error('Fingerprint authentication error:', error);
-  //     // Handle authentication failure
-  //   }
-  // };
-
-
   const handleSubmit = () => {
     props.navigation.navigate('Instagram')
   }
@@ -81,7 +54,11 @@ const Login = (props) => {
           <Text>Fingerprint sensor not available</Text>
         )}
       </View>
-      <Text style={styles.Or}>Or</Text>
+      <View style={styles.OrContainer}>
+        <View style={styles.OrLine} />
+        <Text style={styles.OrText}>Or</Text>
+        <View style={styles.OrLine} />
+      </View>
       <View style={styles.loginWithFacebook}>
         <AntDesign.Button
           name="facebook-square"
@@ -126,7 +103,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
-    fontSize: 18,
+    fontSize: 15,
   },
   button: {
     marginTop: 40,
@@ -135,15 +112,30 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 20,
   },
-  Or: {
+  OrContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 30,
+  },
+  OrLine: {
+    flex: 1,
+    height: 0.5,
+    width:1,
+    backgroundColor: 'gray',
+    marginHorizontal: 25,
+
+  },
+  OrText: {
     fontSize: 15,
     color: 'black',
     fontWeight: 'bold',
+    fontFamily: 'serif',
     margin: 10,
   },
   buttonText: {
     color: 'white',
     fontSize: 18,
+    fontFamily: 'serif',
     textAlign: 'center',
   },
   profileContainer: {
@@ -160,7 +152,8 @@ const styles = StyleSheet.create({
   },
   changeProfileButtonText: {
     color: 'black',
-    fontSize: 18,
+    fontSize: 17,
+    fontWeight: 'bold',
   },
   loginWithFacebook: {
     borderRadius: 18,

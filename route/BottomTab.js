@@ -23,8 +23,6 @@ import HomePage from '../src/components/screens/HomePage';
 import Reels from '../src/components/screens/Reels';
 import Counter from '../src/components/Counter';
 import Profile from '../src/components/screens/Profile';
-// import Fingerprint from '../src/components/Fingerprint';
-
 // import { MaterialBottomTabView } from '@react-navigation/material-bottom-tabs';
 
 
@@ -63,7 +61,7 @@ const BottomTab = () => {
           // ...styles.shadow
         },
         tabBarActiveTintColor: '#000',
-        tabBarActiveBackgroundColor:'#f0f8ff',
+        tabBarActiveBackgroundColor: '#f0f8ff',
         tabBarInactiveTintColor: '#000',
         tabBarShowLabel: false,
         borderRadius: 50,
@@ -73,7 +71,7 @@ const BottomTab = () => {
           marginHorizontal: 10,
           position: 'absolute',
           borderRadius: 15,
-          overflow: 'hidden', 
+          overflow: 'hidden',
           borderTopColor: 'white',
           elevation: 10,
           shadowColor: '#000',
@@ -82,7 +80,7 @@ const BottomTab = () => {
       })}
     >
 
-      <Tab.Screen name="Home" component={HomePage} options={{ headerShown: false}}/>
+      <Tab.Screen name="Home" component={HomePage} options={{ headerShown: false }} />
       <Tab.Screen name="search" component={Search} options={{ headerShown: false }} />
       <Tab.Screen name="reels" component={Reels} options={{ headerShown: false }} />
       <Tab.Screen name={ScreenNames.Instagram} component={Profile} options={{

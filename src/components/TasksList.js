@@ -113,11 +113,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: '#4d5b74',
+    // fontStyle: 'italic',
+    fontFamily: 'serif',
   },
   backButton: {
-    marginLeft: 45,
+    marginLeft: 30,
   },
   input: {
     height: 40,
@@ -193,7 +195,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     textAlign: 'center',
+    fontWeight:'bold',
     fontFamily: 'serif',
+    color:'#000',
   },
   modalButton: {
     backgroundColor: '#4d5b74',
@@ -203,6 +207,7 @@ const styles = StyleSheet.create({
   },
   modalButtonText: {
     color: 'white',
+    fontWeight:'bold',
     fontSize: 16,
   },
 });
