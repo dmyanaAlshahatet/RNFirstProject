@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal'; // استيراد مكتبة react-native-modal
@@ -31,13 +31,16 @@ const TasksList = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        {/* Back button */}
+        {/* Title with image */}
+        <View style={styles.titleContainer}>
+          <Image source={require('../components/images/Leader.webp')} style={styles.titleImage} />
+          <Text style={styles.title}>What are today's tasks?</Text>
+        </View> 
+         {/* Back button */}
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#4d5b74" />
+          <Ionicons name="arrow-forward" size={24} color="#4d5b74" />
         </TouchableOpacity>
 
-        {/* Title */}
-        <Text style={styles.title}>What are today's tasks?</Text>
       </View>
 
       {/* Task input */}
@@ -45,7 +48,7 @@ const TasksList = () => {
         style={styles.input}
         value={task}
         onChangeText={setTask}
-        placeholder="Add a task for today..."
+        placeholder="Add a task ..."
         placeholderTextColor="#aaa"
       />
 
@@ -98,13 +101,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginRight:50,
   },
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  titleImage: {
+    width: 30, 
+    height: 30, 
+    marginRight: 15,
+    borderRadius: 100,
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#4d5b74',
   },
   backButton: {
-    marginBottom: 5,
+    marginLeft: 45,
   },
   input: {
     height: 40,
@@ -191,7 +204,6 @@ const styles = StyleSheet.create({
   modalButtonText: {
     color: 'white',
     fontSize: 16,
-    
   },
 });
 
