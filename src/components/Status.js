@@ -58,12 +58,14 @@ const Status = ({ route, navigation }) => {
           style={styles.input}
         />
 
-        <TouchableOpacity style={styles.iconContainer}>
-          <Feather name="navigation" style={styles.sendIcon} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleHeartPress} style={styles.iconContainer}>
-          <FontAwesome name={heartPressed ? "heart" : "heart-o"} style={[styles.sendIcon, { color: heartPressed ? 'red' : 'white' }]} />
-        </TouchableOpacity>
+        <View style={styles.iconContainer}>
+          <TouchableOpacity >
+            <Feather name="navigation" style={styles.sendIcon} /> 
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleHeartPress}>
+            <FontAwesome name={heartPressed ? "heart" : "heart-o"} style={[styles.sendIcon, { color: heartPressed ? 'red' : 'white' }]} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -152,13 +154,13 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   iconContainer: {
-    // width: 50,
-    // alignItems: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   sendIcon: {
     fontSize: 30,
     color: 'white',
-    
+    marginHorizontal: 10,
   },
 });
 
