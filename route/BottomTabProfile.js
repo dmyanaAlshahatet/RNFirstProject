@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 0.2,
     borderTopColor: 'lightgray',
     paddingVertical: 10,
   },
