@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     // fontFamily: 'serif',
     fontWeight: 'bold',
     color: 'black',
+    
   },
   centered: {
     justifyContent: 'center',

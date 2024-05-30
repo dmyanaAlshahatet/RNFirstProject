@@ -4,6 +4,8 @@ import { ProfileBody, ProfileButtons } from '../ProfileBody';
 import Entypo from 'react-native-vector-icons/Entypo';
 import BottomTabProfile from '../../../route/BottomTabProfile';
 
+
+
 const Profile = () => {
   let circles = [];
   let numberOfCircles = 10;
@@ -49,7 +51,7 @@ const Profile = () => {
           {circles}
         </ScrollView>
       </View>
-      {/* <BottomTabProfile /> */}
+      <BottomTabProfile />
     </View>
   );
 };
