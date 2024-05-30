@@ -41,15 +41,15 @@ export const ProfileBody = ({ props,
                 <Image source={profileImage} style={styles.profileImage} />
                 <View style={styles.stats}>
                     <Text style={styles.statText}>{post}</Text>
-                    <Text>Posts</Text>
+                    <Text style={styles.statText1}>Posts</Text>
                 </View>
                 <View style={styles.stats}>
                     <Text style={styles.statText}>{followers}</Text>
-                    <Text>Followers</Text>
+                    <Text style={styles.statText1}>Followers</Text>
                 </View>
                 <View style={styles.stats}>
                     <Text style={styles.statText}>{following}</Text>
-                    <Text>Following</Text>
+                    <Text style={styles.statText1}>Following</Text>
                 </View>
             </View>
         </View>
@@ -90,7 +90,7 @@ export const ProfileButtons = ({ id, name, accountName, profileImage }) => {
                         <Text>Message</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.dropdownButton}>
-                        <Feather name="chevron-down" />
+                        <Feather name="chevron-down " />
                     </TouchableOpacity>
                 </View>
             )}
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         fontFamily: 'serif',
         fontWeight: 'bold',
-        color: 'black',
+        color: '#000',
     },
     accountInfo: {
         flexDirection: 'row',
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 20,
-        color: '#000',
+        color: '#191970',
         paddingHorizontal: 5,
     },
     statsContainer: {
@@ -148,8 +148,14 @@ const styles = StyleSheet.create({
     statText: {
         fontWeight: 'bold',
         fontSize: 18,
-        color: 'black',
+        color: '#191970',
     },
+    statText1: {
+        // fontWeight: 'bold',
+        // fontSize: 18,
+        color: '#000',
+    },
+
     buttonContainer: {
         width: '100%',
         flexDirection: 'row',
@@ -161,7 +167,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 35,
         borderRadius: 15,
-        borderColor: '#DEDEDE',
+        borderColor: '#4682b4',
         borderWidth: 1,
         justifyContent: 'center',
         alignItems: 'center',

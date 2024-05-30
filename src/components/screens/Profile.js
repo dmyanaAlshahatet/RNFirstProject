@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
   },
   profileInfo: {
     padding: 10,
+    // color:'#191970',
   },
   circleContainer: {
     marginHorizontal: 5,
@@ -75,16 +76,17 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     justifyContent: 'center',
     alignItems: 'center',
+    borderColor:'#191970'
   },
   plusIcon: {
     fontSize: 40,
-    color: 'black',
+    color: '#191970',
   },
   normalCircle: {
     width: 60,
     height: 60,
     borderRadius: 100,
-    backgroundColor: 'black',
+    backgroundColor: '#4682b4',
     opacity: 0.1,
   },
   storyHighlights: {
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
     // fontFamily: 'serif',
     fontFamily: 'Lobster-Regular',
     fontWeight: 'bold',
-    color: 'black',
+    color: '#191970',
   },
   scrollView: {
     paddingVertical: 5,
