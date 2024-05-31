@@ -38,7 +38,10 @@ export const ProfileBody = ({ props,
                 </View>
             )}
             <View style={styles.statsContainer}>
-                <Image source={profileImage} style={styles.profileImage} />
+                <View style={styles.profileImageContainer}>
+                    <Image source={profileImage} style={styles.profileImage} />
+                </View>
+
                 <View style={styles.stats}>
                     <Text style={styles.statText}>{post}</Text>
                     <Text style={styles.statText1}>Posts</Text>
@@ -132,16 +135,24 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         paddingVertical: 20,
     },
-    profileImage: {
-        borderWidth: 2,
+    profileImageContainer: {
+        width: 68,
+        height: 68,
+        backgroundColor: 'white',
+        borderWidth: 1.8,
+        borderRadius: 100,
+        borderColor: '#c13584',
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: '#c13584',
-        resizeMode: 'cover',
-        width: 80,
-        height: 80,
-        borderRadius: 100,
     },
+    profileImage: {
+        resizeMode: 'cover',
+        width: '92%',
+        height: '92%',
+        borderRadius: 100,
+        backgroundColor: 'orange',
+    },
+
     stats: {
         alignItems: 'center',
     },

@@ -29,7 +29,7 @@ const Profile = () => {
         <ProfileBody
           name="Mr Peobody"
           accountName="mr_ peobody"
-          profileImage={require('../images/angryBoss.jpg')}
+          profileImage={require('../images/Boss_Baby.jpg')}
           followers="3.6M"
           following="35"
           post="458"
