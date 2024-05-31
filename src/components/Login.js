@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input: {
-    borderColor: 'black',
+    borderColor: '#4682b4',
     fontFamily: 'serif',
     borderWidth: 1,
     borderRadius: 10,
