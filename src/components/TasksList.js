@@ -1,49 +1,41 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, useColorScheme, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Modal from 'react-native-modal'; // استيراد مكتبة react-native-modal
+import Modal from 'react-native-modal'; 
 
 const TasksList = () => {
   const [task, setTask] = useState('');
   const [tasks, setTasks] = useState([]);
-  const [isModalVisible, setModalVisible] = useState(false); // حالة لتتبع إظهار أو إخفاء النافذة المتعددة
+  const [isModalVisible, setModalVisible] = useState(false); 
   const navigation = useNavigation();
 
-  // Function to add a task
   const addTask = () => {
     if (task.trim() === '') {
-      setModalVisible(true); // إظهار النافذة المتعددة عند محاولة إضافة مهمة فارغة
-      return; // توقف عن إضافة المهمة إذا كانت فارغة
+      setModalVisible(true); 
+      return; 
     }
     setTasks([...tasks, { task, key: tasks.length.toString() }]);
     setTask('');
   };
 
-  // Function to remove a task
   const removeTask = (key) => {
     setTasks(tasks.filter((t) => t.key !== key));
   };
 
-  // Get the color scheme
   const colorScheme = useColorScheme();
 
   return (
-    <View style={styles.container}>
+    <ImageBackground  source={require('../components/images/Task2.jpg')} style={styles.container} >
       <View style={styles.header}>
-        {/* Title with image */}
         <View style={styles.titleContainer}>
-          <Image source={require('../components/images/Leader.webp')} style={styles.titleImage} />
           <Text style={styles.title}>What are today's tasks?</Text>
         </View> 
-         {/* Back button */}
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-forward" size={24} color="#4d5b74" />
         </TouchableOpacity>
-
       </View>
 
-      {/* Task input */}
       <TextInput
         style={styles.input}
         value={task}
@@ -52,12 +44,10 @@ const TasksList = () => {
         placeholderTextColor="#aaa"
       />
 
-      {/* Add button */}
       <TouchableOpacity style={styles.button} onPress={addTask}>
         <Text style={styles.buttonText}>+</Text>
       </TouchableOpacity>
 
-      {/* Task list */}
       <FlatList
         style={styles.list}
         data={tasks}
@@ -65,14 +55,13 @@ const TasksList = () => {
           <View style={styles.listItem}>
             <Text style={styles.taskText}>{item.task}</Text>
             <TouchableOpacity onPress={() => removeTask(item.key)}>
-              <Ionicons name="trash-outline" size={20} color="#999" />
+              <Ionicons name="trash-outline" size={20} color="#4682b4" />
             </TouchableOpacity>
           </View>
         )}
         keyExtractor={(item) => item.key}
       />
 
-      {/* Modal */}
       <Modal isVisible={isModalVisible} style={styles.modal}>
         <View style={styles.modalContent}>
           <Text style={styles.modalText}>You haven't added any tasks yet!</Text>
@@ -82,9 +71,8 @@ const TasksList = () => {
         </View>
       </Modal>
 
-      {/* Current color scheme */}
       <Text style={styles.colorSchemeText}>Current Color Scheme: {colorScheme}</Text>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -92,34 +80,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f0f8ff',
+    backgroundColor: 'transparent',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
-    marginRight:50,
+    marginRight: 50,
   },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  titleImage: {
-    width: 30, 
-    height: 30, 
-    marginRight: 15,
-    borderRadius: 100,
-  },
   title: {
     fontSize: 24,
-    // fontWeight: 'bold',
+    marginLeft:20,
     color: '#4d5b74',
-    // fontStyle: 'italic',
+    fontWeight: 'bold',
+    // fontFamily: 'Lobster-Regular',
     fontFamily: 'serif',
   },
   backButton: {
-    marginLeft: 30,
+    marginLeft: 40,
   },
   input: {
     height: 40,
@@ -180,7 +163,6 @@ const styles = StyleSheet.create({
     fontFamily: 'serif',
     color: '#666',
   },
-  // Modal styles
   modal: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -195,9 +177,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     textAlign: 'center',
-    fontWeight:'bold',
+    fontWeight: 'bold',
     fontFamily: 'serif',
-    color:'#000',
+    color: '#000',
   },
   modalButton: {
     backgroundColor: '#4d5b74',
@@ -207,7 +189,7 @@ const styles = StyleSheet.create({
   },
   modalButtonText: {
     color: 'white',
-    fontWeight:'bold',
+    fontWeight: 'bold',
     fontSize: 16,
   },
 });
