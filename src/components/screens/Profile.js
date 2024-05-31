@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
 import { ProfileBody, ProfileButtons } from '../ProfileBody';
 import Entypo from 'react-native-vector-icons/Entypo';
 import BottomTabProfile from '../../../route/BottomTabProfile';
-
-
+import ImageData from '../ImageData';
 
 const Profile = () => {
   let circles = [];
@@ -52,6 +51,14 @@ const Profile = () => {
         </ScrollView>
       </View>
       <BottomTabProfile />
+      <View style={styles.horizontalLine}></View>
+      <ScrollView contentContainerStyle={styles.body}>
+        {ImageData.map((image, index) => (
+          <View key={index} style={styles.imageContainer}>
+            <Image style={styles.image} source={image} />
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };
@@ -63,7 +70,6 @@ const styles = StyleSheet.create({
   },
   profileInfo: {
     padding: 10,
-    // color:'#191970',
   },
   circleContainer: {
     marginHorizontal: 5,
@@ -76,7 +82,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor:'#191970'
+    borderColor: '#191970',
   },
   plusIcon: {
     fontSize: 40,
@@ -97,13 +103,34 @@ const styles = StyleSheet.create({
     padding: 10,
     letterSpacing: 1,
     fontSize: 14,
-    // fontFamily: 'serif',
     fontFamily: 'Lobster-Regular',
     fontWeight: 'bold',
     color: '#191970',
   },
   scrollView: {
     paddingVertical: 5,
+  },
+  body: {
+    alignItems: 'center',
+    padding: 10,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  imageContainer: {
+    width: '33.333%',
+    padding: 5,
+  },
+  image: {
+    width: '100%',
+    height: 120,
+    borderRadius: 10,
+  },
+  horizontalLine: {
+    backgroundColor: '#191970',
+    height: 2,
+    alignSelf: 'center',
+    width: 60, // تحديد عرض الخط هنا
+    marginBottom: 10, // لترك مسافة بين الخط والمحتوى تحت كلمة "Posts"
   },
 });
 
