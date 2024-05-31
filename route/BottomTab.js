@@ -82,7 +82,7 @@ const BottomTab = () => {
 
       <Tab.Screen name="Home" component={HomePage} options={{ headerShown: false }} />
       <Tab.Screen name="search" component={Search} options={{ headerShown: false }} />
-      <Tab.Screen name="reels" component={InstagramInterface} options={{ headerShown: false }} />
+      <Tab.Screen name="reels" component={Reels} options={{ headerShown: false }} />
       <Tab.Screen name={ScreenNames.Instagram} component={Profile} options={{
         headerShown: false, tabBarIcon: ({ focused }) => (
           <Image style={styles.BottomTab}
